@@ -40,12 +40,12 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 var
   StyleRed, StyleLime, StyleDefault:TLazEditorStyleBox;
-  StyleList1, StyleList2, StyleList3:TLazEditorStyleList;
+  StyleList1, StyleList2, StyleList3, StyleList4:TLazEditorStyleList;
 
 begin
   Randomize;
   Liste_Kraut:=TStringList.Create;
-  Liste_Kraut.LoadFromFile('/home/pluto/nextcloud_pluto/LazEditorComponent/tests/pr1/Listen/Kräuter.txt');
+  Liste_Kraut.LoadFromFile('/home/pluto/entwicklung/Lazarus/github/LazEditor/pr1/Listen/Kräuter.txt');
 
   LazEditor_pr1_Test:=TLazEditor_pr1_Test.Create(Panel2);
   LazEditor_pr1_Test.Align:=alClient;
@@ -63,20 +63,27 @@ begin
   StyleList2.Add(ESN_Color,'',clYellow);
   StyleList2.Add(ESN_BackgroundColor,'',clBlue);
   StyleList2.Add(ESN_FontStyle,'',0).ValueFonts:=[];
-  StyleList2.Add(ESN_FontSize,'',18);
+  StyleList2.Add(ESN_FontSize,'',30);
 
   StyleList3:=TLazEditorStyleList.Create;
   StyleList3.Add(ESN_Color,'',clWhite);
   StyleList3.Add(ESN_BackgroundColor,'',clRed);
   StyleList3.Add(ESN_FontStyle,'',0).ValueFonts:=[fsBold];
 
+  StyleList4:=TLazEditorStyleList.Create;
+  StyleList4.Add(ESN_Color,'',clYellow);
+  StyleList4.Add(ESN_BackgroundColor,'',clBlue);
+  StyleList4.Add(ESN_FontStyle,'',0).ValueFonts:=[];
+  StyleList4.Add(ESN_FontSize,'',12);
+
+
 // LazEditor_pr1_Test.ContentText:='Dies ist ein langer langer Text mit Umlauten(ÖÄÜ,öäü) ♠';
   //LazEditor_pr1_Test.ContentText:='Abelmoschus <b>Ackerveilchen</b> Affodill [b]Alberbaum[/b] Aloe Altee *Blutblume* **Blutwürze** Bockshornklee <fgColor="red">Bogenbaum Bohnenkraut Dittichrut Dragon Dreisdorn Einbeere';
 
-  LazEditor_pr1_Test.SetText([TLazEditorTextBox.Create('Abelmoschus Ackerveilchen Affodill Alberbaum Aloe'),
-                              StyleList2, TLazEditorTextBox.Create('Blutblume Blutwürze Bockshornklee '),
+  LazEditor_pr1_Test.SetText([TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
+                              StyleList2, TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
                               StyleList1, TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet'),
-                              StyleList3, TLazEditorTextBox.Create('Bogenbaum Bohnenkraut Dittichrut '),
+                              StyleList4, TLazEditorTextBox.Create('Bogenbaum Bohnenkraut Dittichrut '),
                               StyleList1, TLazEditorTextBox.Create('Dragon Dreisdorn Einbeere ')
 
                              ]

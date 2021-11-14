@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 1111
+  Left = 2396
   Height = 450
-  Top = 297
+  Top = 393
   Width = 807
   Caption = 'LazEditor PR1 Test von Mittwoch dem 03.11.2021'
   ClientHeight = 450
@@ -20,9 +20,9 @@ object Form1: TForm1
     TabOrder = 0
     object BitBtn1: TBitBtn
       Left = 13
-      Height = 29
+      Height = 36
       Top = 8
-      Width = 124
+      Width = 156
       AutoSize = True
       Caption = 'Eintrag erzeugen'
       OnClick = BitBtn1Click
@@ -30,9 +30,9 @@ object Form1: TForm1
     end
     object BitBtn2: TBitBtn
       Left = 176
-      Height = 29
+      Height = 36
       Top = 8
-      Width = 91
+      Width = 118
       AutoSize = True
       Caption = 'Durchgehen'
       OnClick = BitBtn2Click
@@ -40,9 +40,9 @@ object Form1: TForm1
     end
     object BitBtn3: TBitBtn
       Left = 296
-      Height = 29
+      Height = 36
       Top = 8
-      Width = 74
+      Width = 93
       AutoSize = True
       Caption = 'Content1'
       OnClick = BitBtn3Click

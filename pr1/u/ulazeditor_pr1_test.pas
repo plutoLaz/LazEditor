@@ -161,6 +161,7 @@ begin
 
   TextStyle:=Canvas.TextStyle;
   TextStyle.Opaque:=True;
+  TextStyle.SystemFont:=False;
   Canvas.TextStyle:=TextStyle;
   DefaultStyleList:=nil;
 end; // TLazEditor_pr1_Test.Create
@@ -232,14 +233,20 @@ var
   LineStart:Integer;
   Size:TSize;
   i:Integer;
-  XHeight:Integer;
-  TM:TEXTMETRIC;
+  XHeight, XLineHeight:Integer;
+  DefaultTM, TempTM:TEXTMETRIC;
 begin
   px:=5; py:=5; pw:=0; ph:=0; LineStart:=px; LineText:='';
 
-  ToCanvas(DefaultStyleList);
+  //ToCanvas(DefaultStyleList);
+  ResetStyle();
   XHeight:=Canvas.TextHeight('x');
-  GetTextMetrics(Canvas.Handle, TM);
+  XLineHeight:=XHeight*3;
+//  writeln(XHeight, ' ',XLineHeight,' ',Canvas.TextHeight('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'));
+
+  GetTextMetrics(Canvas.Handle, DefaultTM);
+  //writeln(DefaultTM.tmHeight, ' ', DefaultTM.tmAscent, ' ', Canvas.TextHeight('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'));
+  py:=XHeight;
 
   for LineItem in LineList do begin
     TempLineText:=LineItem.GetLineText;
@@ -249,13 +256,16 @@ begin
       x:=x + 1;
       ch:=UTF8Copy(TempLineText, x, 1);
       if ch = #0 then begin
-        Canvas.TextOut(LineStart,py+XHeight,LineText);
+        if TempTM.tmHeight > DefaultTM.tmHeight then
+          Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText)
+        else
+          Canvas.TextOut(LineStart,py,LineText);
+
         LineStart:=px;
         LineText:='';
         ToCanvas(DefaultStyleList);
-        XHeight:=Canvas.TextHeight('X');
         ToCanvas(LineItem.GetStyle);
-
+        GetTextMetrics(Canvas.Handle, TempTM);
         continue;
       end;
 
@@ -269,19 +279,28 @@ begin
         px+=pw;
       end
       else begin
-        if LineText <> '' then
-          Canvas.TextOut(LineStart+XHeight,py,LineText);
+        if LineText <> '' then begin
+          if TempTM.tmHeight > DefaultTM.tmHeight then
+            Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText)
+          else
+            Canvas.TextOut(LineStart,py,LineText);
+        end;
         LineText:=ch;
         LineStart:=5;
         px:=5 + pw;
         py+=ph;
+
         ph:=0;
       end;
     until x >= len;
   end; // for LineItem
 
   if LineText <> '' then begin
-    Canvas.TextOut(LineStart,py,LineText);
+    if TempTM.tmHeight > DefaultTM.tmHeight then
+      Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText)
+    else
+      Canvas.TextOut(LineStart,py,LineText);
+
     LineText:='';
   end;
 end; // TLazEditor_pr1_Test.Render
