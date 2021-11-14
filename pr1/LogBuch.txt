@@ -2,8 +2,13 @@ Dokument Angelegt am Dienstag, 09.11.2021
 ============================
 
 
+#02 - Eintrag von Sonntag, 14.11.2021
+-------------------------------------
+Ein GitHub angelegt, für die Entwicklung.
+Mal sehen ob es klappt
+
 #01 - Eintrag vom Dienstag, 09.11.2021
---------------------------------------------------------
+--------------------------------------
 Im Moment gibt es noch keine "Zeile" in der Render Methode der Komponente.
 
 Das Problem ist nun aber, so lange es keine Zeile gibt, kann es auch keine BaseLine z.b. geben.
