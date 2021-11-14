@@ -1,0 +1,107 @@
+Dokument Angelegt am Dienstag, 09.11.2021
+============================
+
+
+#01 - Eintrag vom Dienstag, 09.11.2021
+--------------------------------------------------------
+Im Moment gibt es noch keine "Zeile" in der Render Methode der Komponente.
+
+Das Problem ist nun aber, so lange es keine Zeile gibt, kann es auch keine BaseLine z.b. geben.
+Nun geht es darum ein Weg zu finden, Gewisse Dinge in einer Zeile zu speichern.
+
+Vielleicht wird dabei erst mal keine Zeilenliste nötig, aber ein "LineItem" :
+- Ascent
+- Descent
+- Breite
+- Höhe
+speichern, pro Element einer "Zeile".
+
+Eine Zeile kann mehr als ein LineItem haben, also wird hier eine "Liste" benötigt.
+Diese Angaben werden, dann auch noch in der "LineItemList" gespeichert
+
+Im Prinzip, kann diese LineItemList auch für den Zeilen cache verwendet werden.
+
+Dabei gibt es EIN Punkt:
+In der "Spalte", wird der Anfang und das Ende in Form von "Pointern" im Gesammt Text gespeichert.
+Wenn das klappt, währen änderungen nicht weiter ein Problem.
+
+Ich frage mich, warum asl Pointer und nicht als "Index"? Bei einer Änderung muss ja so oder so neu Gerendet werden,
+gut, vielleicht nicht alles. Wenn es als "Index" gespeichert wird, müsste natürlich alle Indexe neu gesetzt werden.
+Wie oft ist das Nötig? Da es keine 2D Zeilen Struktur mehr gibt.
+
+Klassenstruktur:
+
+Speichert verschiedene Infos, die für die Zeile Nötig sind
+1. TLazEditorLineItemInfo
+  // Bezieht sich auf die "Lange" Verkette Line Liste
+  property Line:TLazEditorLine read fLine write fLine;
+
+  // Damit ist die Zeile gemeint.
+  property LineInfo:TLazEditorLineInfo read fLineInfo write fLineInfo;
+
+  // Ein Index als Integer, der sich auf die "Line" bezieht
+  property StartCharIndex:Integer read fStartCharIndex write fStartCharIndex;
+
+  // Die Anzahl der Zeichen, pro Zeilen Element
+  property LineCharCount:Integer read fLineCharCount write fLineCharCount;
+
+  property Ascent:Integer read fAscent write fAscent;
+  property Descent:Integer read fDescent write fDescent;
+  property Width:Integer read fWidth write fWidth;
+  property Height:Integer read fHeight write fHeight;
+
+Bei einer Möglichen Änderung, wird also die "Line" geändert
+und nicht "LineInfo".
+
+Speichert mehrere LineItemInfos in einer Liste
+2. TLazEditorLineInfo
+  Items:TObjectList;
+  property Item[const aItemIndex:Integer]:TLazEditorLineItemInfo; default;
+  property Count:Integer read GetCount;
+  
+Verwaltet mehrere LineItemInfos
+3. TLazEditorLineInfoContainer 
+  Items:TObjectList;
+  Item[const aItemIndex:Integer]:TLazEditorLineInfo read GetItem; default;
+  property Count:Integer read GetCount;
+
+Eine Zeilen Liste sehe ich im Moment als nicht Notwendig an.
+Die AKtuelle "LineInfo" wird Global gespeichert.
+Diese Infos können dann auch für den Cursor und soweiter verwendet werden?
+
+Nun habe ich ein Problem bemerkt, ich habe versucht diese Idee umzusetzten:
+1. In der Render Methode habe ich eine LineInfo und eine LineItemInfo.
+    Die LineItemInfo wird öfter neu erstellt, die LIneInfo nicht.
+
+2. Bei jeder Formatierung, wird eine neue LineItemInfo erstellt und vorher ein Eintrag
+    in die LineInfo List gemacht.
+
+3. Bei einem Zeilenumbruch wird die Zeile gezeichnet.
+    Genau das ist wohl das Problem !
+    Wenn ich das trenne, müsste ich wieder eine Zeilen Liste haben.
+    
+Ich habe diesen Versuch erst mal aufgegeben.     
+
+Ich frage mich, ob es ohne eine Komplexe Datenstruktur überhaupt Möglich ist.
+So lange, es keine verschiedene Schrift größen gibt, ist es noch überschaubar.
+
+Mit der Schrifgröße kommen ja weitere "Probleme" hinzu.
+
+Die Frage ist: Wie speichere ich diese Infos am besten und wie wende ich sie an.
+Im Prinzip muss ich einfach die Daten Zweimal durchgehen.
+
+Einmal um eine Zeilenstruktur zu erstellen und einmal um die Zeilenstruktur zu rendern.
+Das aber führt wieder zu den anderen bekannten Problemen. Am Anfang wäre es wohl leichter bis zu einem gewissen punkt !
+
+
+Die nächsten Schirtte:
+1. Eine Baumstruktur hinzufügen. 
+Das hat einfach mehr vorteile. Macht es, aber auch komplexer. 
+Sobald das Thema Schriftgröße ins Spiel kommt, macht es sinn eine Baumstruktur zu verwenden.
+
+2. Eine Zeilenstruktur hinzufügen.
+Bei den Aktuellen Versuch habe ich gemerkt, es geht einfach nicht anders.
+
+Ich brauche einfach Infos von der Zeile, die ich vor dem Zeichnen brauche.
+
+
