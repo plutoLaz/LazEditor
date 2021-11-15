@@ -16,17 +16,20 @@ type
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
     Panel1: TPanel;
     Panel2: TPanel;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
   public
     LazEditor_pr1_Test:TLazEditor_pr1_Test;
     Liste_Kraut:TStringList;
+    StyleList1, StyleList2, StyleList3, StyleList4:TLazEditorStyleList;
   end;
 
 var
@@ -38,10 +41,6 @@ implementation
 
 { TForm1 }
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  StyleRed, StyleLime, StyleDefault:TLazEditorStyleBox;
-  StyleList1, StyleList2, StyleList3, StyleList4:TLazEditorStyleList;
-
 begin
   Randomize;
   Liste_Kraut:=TStringList.Create;
@@ -122,8 +121,64 @@ begin
     Str+=Liste_Kraut[i] + ' ';
   end;
 
-//  LazEditor_pr1_Test.ContentText:=str;
   LazEditor_pr1_Test.SetText([TLazEditorTextBox.Create(str)]);
+  LazEditor_pr1_Test.Invalidate;
+end;
+
+procedure TForm1.BitBtn4Click(Sender: TObject);
+  procedure AddBoxArray(aBox:TLazEditorBox; var aBoxArray:TLazEditorBoxArray);
+  var
+    Len:Integer;
+  begin
+    Len:=Length(aBoxArray);
+    SetLength(aBoxArray, Len+1);
+    aBoxArray[Len]:=aBox;
+  end;
+
+  function GetRandomStyle():TLazEditorStyleList;
+  var
+    r:Integer;
+  begin
+    result:=StyleList1;
+    r:=Random(4) + 1;
+    case r of
+      1: result:=StyleList1;
+      2: result:=StyleList2;
+      3: result:=StyleList3;
+      4: result:=StyleList4;
+    end;
+  end; // GetRandomStyle
+
+var
+  i,WordCount, y:Integer;
+  Str:String;
+
+  BoxArray:TLazEditorBoxArray;
+  TempStyleBox:TLazEditorStyleList;
+begin
+  BoxArray:=[];
+  str:='';
+
+  WordCount:=Random(10)+1;
+  y:=0;
+  SetLength(BoxArray, 0);
+  TempStyleBox:=GetRandomStyle;
+  for i:=0 to 50 do begin
+    Str+=Liste_Kraut[i] + ' ';
+    if y + 1 <=WordCount then begin
+      AddBoxArray(TempStyleBox, BoxArray);
+      AddBoxArray(TLazEditorTextBox.Create(Str), BoxArray);
+      y+=1;
+      str:='';
+    end
+    else begin
+      y:=0;
+      TempStyleBox:=GetRandomStyle();
+      WordCount:=Random(10)+1;
+    end;
+  end;
+
+  LazEditor_pr1_Test.SetText(BoxArray);
   LazEditor_pr1_Test.Invalidate;
 end;
 

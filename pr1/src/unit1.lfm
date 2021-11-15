@@ -48,6 +48,16 @@ object Form1: TForm1
       OnClick = BitBtn3Click
       TabOrder = 2
     end
+    object BitBtn4: TBitBtn
+      Left = 392
+      Height = 36
+      Top = 8
+      Width = 93
+      AutoSize = True
+      Caption = 'Content2'
+      OnClick = BitBtn4Click
+      TabOrder = 3
+    end
   end
   object Panel2: TPanel
     Left = 0
