@@ -63,7 +63,7 @@ begin
   StyleList2.Add(ESN_Color,'',clYellow);
   StyleList2.Add(ESN_BackgroundColor,'',clBlue);
   StyleList2.Add(ESN_FontStyle,'',0).ValueFonts:=[];
-  StyleList2.Add(ESN_FontSize,'',30);
+  StyleList2.Add(ESN_FontSize,'',18);
 
   StyleList3:=TLazEditorStyleList.Create;
   StyleList3.Add(ESN_Color,'',clWhite);
