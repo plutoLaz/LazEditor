@@ -12,7 +12,7 @@ unit uLazEditor_pr1_Test;
 interface
 
 uses
-  Classes, SysUtils, Controls, Graphics, glinkedlist, LazUTF8, LCLType, LCLIntf, Types,
+  Classes, SysUtils, Controls, Graphics, glinkedlist, LazUTF8, LCLType, LCLIntf, Types, Contnrs,
   ulazeditor_pr1_boxtype, ulazeditor_pr1_styletypes;
 
 type
@@ -36,6 +36,22 @@ type
 
   // Warum das Nötig ist, weiß ich im Moment nicht. Sonst geht die "For/In schleife" meine ich nicht.
   TLazEditorLineLL = specialize TLinkedList<TLazEditorLongLine>;
+
+  { TLazEditorLineItem }
+  TLazEditorLineItem = class
+  private
+
+  protected
+
+  public
+    StartCharIndex, EndCharIndex:Integer;
+    StartLongLineItem, EndLongLineItem:TLazEditorLongLine;
+    LineText:String;
+    constructor Create;
+    destructor Destroy; override;
+  published
+  end; // TLazEditorLineItem
+
 
   // Eine Test Komponente, Abgeleitet von "TCustomControl".
   // Alle selbst erstellen Komponenten, die NICHT vom Betriebsystem kommen, sind von TCustomControl abgeleitet.
@@ -79,6 +95,20 @@ operator :=(const AValue: String): TLazEditorLongLine;
 begin
   Result := TLazEditorLongLine.Create(AValue,nil);
 end;
+
+{ TLazEditorLineItem }
+constructor TLazEditorLineItem.Create;
+begin
+  inherited Create;
+  LineText:='';
+  StartCharIndex:=-1; EndCharIndex:=-1;
+  StartLongLineItem:=nil; EndLongLineItem:=nil;
+end; // TLazEditorLineItem.Create
+
+destructor TLazEditorLineItem.Destroy;
+begin
+  inherited Destroy;
+end; // TLazEditorLineItem.Destroy
 
 { TLazEditorLine }
 constructor TLazEditorLongLine.Create(const aLineText: String; const aStyle: TLazEditorStyleList);
@@ -198,6 +228,16 @@ end; // TLazEditor_pr1_Test.Destroy
   Gewisse Infos, muss ich vorberechnen.
   Zeigt einige gute Lösungen, für UTF8 Probleme
   https://www.lazarusforum.de/viewtopic.php?t=12779
+
+  Nachtrag:
+  Jede Zeile soll gleich hoch sein. Die Schrift Größe wird jetzt erst mal vernachlässigt.
+
+  Das Problem ist jedoch, dass die Methode "TextExtent" von TCanvas die Text Höhe aber nicht die Buchstaben höhe zuürkc gibt.
+  Jeder Buchstabe ist gleich Hoch aber unterschiedlich breit.
+  Bin mir noch nicht 100% sicher ob das irgendwo einstellbar ist. Bisher habe ich noch keine Hinweise dazu gefunden.
+
+  In einem Test konnte ich einfache Schrift Formatierungs Zeichen wie * und so auswerten. Problem ist dann die Schrift Farbe.
+  D.H. wie Parameter übergeben werden.
 }
 
 procedure TLazEditor_pr1_Test.Render();
@@ -228,23 +268,22 @@ var
   LineText :String;
   ch:String;
 
-  px, py, pw, ph, TempPH,x, x2:Integer;
+  px, py, pw, ph, x:Integer;
   len:PtrInt;
   LineStart:Integer;
   Size:TSize;
-  i:Integer;
-  XHeight, XLineHeight:Integer;
-  DefaultTM, TempTM:TEXTMETRIC;
+  XHeight:Integer;
+  DefaultTM:TEXTMETRIC;
 begin
   px:=5; py:=5; pw:=0; ph:=0; LineStart:=px; LineText:='';
 
   ResetStyle();
-  XHeight:=Canvas.TextHeight('x');
-  XLineHeight:=XHeight*3;
-  GetTextMetrics(Canvas.Handle, DefaultTM);
-  py:=18;
-  ph:=18;
-  writeln(py, ' ', ph);
+  XHeight:=Canvas.TextHeight('x'); // Ist leider nur die Texthöhe aber nicht die Buchstaben Höhe
+//  XLineHeight:=XHeight*3;
+
+  LCLIntf.GetTextMetrics(Canvas.Handle, DefaultTM{%H-});
+  py:=5;
+  ph:=XHeight;
 
   for LineItem in LineList do begin
     TempLineText:=LineItem.GetLineText;
@@ -254,16 +293,12 @@ begin
       x:=x + 1;
       ch:=UTF8Copy(TempLineText, x, 1);
       if ch = #0 then begin
-//        if TempTM.tmHeight > DefaultTM.tmHeight then
-          Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText);
-//        else
-  //        Canvas.TextOut(LineStart,py,LineText);
-
+        Canvas.TextOut(LineStart,py,LineText);
         LineStart:=px;
         LineText:='';
-        ToCanvas(DefaultStyleList);
+        ToCanvas(DefaultStyleList); // Im Moment gibt es noch keine "Vererbung" von Stylen.
         ToCanvas(LineItem.GetStyle);
-        GetTextMetrics(Canvas.Handle, TempTM);
+//        GetTextMetrics(Canvas.Handle, TempTM{%H-});
         continue;
       end;
 
@@ -277,12 +312,8 @@ begin
         px+=pw;
       end
       else begin
-        if LineText <> '' then begin
-//          if TempTM.tmHeight > DefaultTM.tmHeight then
-            Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText);
-  //        else
-    //        Canvas.TextOut(LineStart,py,LineText);
-        end;
+        if LineText <> '' then
+          Canvas.TextOut(LineStart,py,LineText);
         LineText:=ch;
         LineStart:=5;
         px:=5 + pw;
@@ -293,18 +324,97 @@ begin
   end; // for LineItem
 
   if LineText <> '' then begin
-//    if TempTM.tmHeight > DefaultTM.tmHeight then
-      Canvas.TextOut(LineStart,py-(TempTM.tmHeight-DefaultTM.tmHeight),LineText);
-//    else
-//      Canvas.TextOut(LineStart,py,LineText);
-
+    Canvas.TextOut(LineStart,py,LineText);
     LineText:='';
   end;
 end; // TLazEditor_pr1_Test.Render
 
 procedure TLazEditor_pr1_Test.Render2();
-begin
+  procedure CreateLineList(var aLineList:TObjectList);
+  var
+    LongLineItem:TLazEditorLongLine;
+    TempLineText:String;
+    LineText :String;
+    ch:String;
+    px, py, pw, ph, x:Integer;
+    LineStart, len:Integer;
+    Size:TSize;
+    LineItem:TLazEditorLineItem;
 
+  begin
+    px:=5; py:=5; pw:=0; ph:=0; LineStart:=px; LineText:='';
+    x:=1;
+    ResetStyle();
+
+    LineItem:=TLazEditorLineItem.Create;
+
+    for LongLineItem in LineList do begin
+      if not Assigned(LineItem.StartLongLineItem) then LineItem.StartLongLineItem:=LongLineItem;
+
+      TempLineText:=LongLineItem.GetLineText;
+      x:=0;
+      len:=UTF8Length(TempLineText);
+      repeat
+        x:=x + 1;
+        if LineItem.StartCharIndex = -1 then
+          LineItem.StartCharIndex:=x;
+
+        ch:=UTF8Copy(TempLineText, x, 1);
+        if ch = #0 then begin
+          Continue;
+        end;
+
+        Size:=Canvas.TextExtent(ch);
+        pw:=Size.cx;
+
+        if px + pw <=ClientWidth - pw then begin
+          LineText+=ch;
+          px+=pw;
+        end
+        else begin
+          LineItem.EndLongLineItem:=LongLineItem;
+          LineItem.EndCharIndex:=UTF8Length(TempLineText);
+          LineItem.LineText:=LineText;
+          aLineList.Add(LineItem);
+
+          LineItem:=TLazEditorLineItem.Create;
+          LineItem.StartCharIndex:=x+1;
+          LineItem.StartLongLineItem:=LongLineItem;
+//          if LineText <> '' then begin
+//            Canvas.TextOut(LineStart,py,LineText);
+//          end;
+          LineText:=ch;
+          LineStart:=5;
+          px:=5 + pw;
+          py+=ph;
+        end;
+      until x >= len;
+    end; // for LineItem
+
+    if LineText <> '' then begin
+      LineItem.EndLongLineItem:=LongLineItem;
+      LineItem.EndCharIndex:=UTF8Length(TempLineText);
+      LineItem.LineText:=LineText;
+      aLineList.Add(LineItem);
+      LineText:='';
+    end;
+  end;
+var
+  aLineList:TObjectList;
+  LineItem:TLazEditorLineItem;
+
+  i:Integer;
+begin
+  aLineList:=TObjectList.Create();
+  CreateLineList(aLineList);
+
+  for i:=0 to aLineList.Count -1  do begin
+    LineItem:=aLineList[i] as TLazEditorLineItem;
+
+    writeln(LineItem.LineText);
+  end; // for i
+
+  FreeAndNil(aLineList);
 end; // TLazEditor_pr1_Test.Render2
 
 procedure TLazEditor_pr1_Test.BoundsChanged;

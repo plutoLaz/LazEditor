@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 2046
+  Height = 726
+  Top = 183
+  Width = 1310
+  Caption = 'LazEditor PR2 Test von Dienstag  dem 09.11.2021'
+  ClientHeight = 726
+  ClientWidth = 1310
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.3.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 1310
+    Align = alTop
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 676
+    Width = 1310
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 1310
+    TabOrder = 1
+    object BitBtn3: TBitBtn
+      Left = 8
+      Height = 36
+      Top = 8
+      Width = 93
+      AutoSize = True
+      Caption = 'Content1'
+      OnClick = BitBtn3Click
+      TabOrder = 0
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 626
+    Top = 50
+    Width = 1301
+    Align = alClient
+    TabOrder = 2
+  end
+  object Splitter1: TSplitter
+    Left = 1301
+    Height = 626
+    Top = 50
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object Panel4: TPanel
+    Left = 1306
+    Height = 626
+    Top = 50
+    Width = 4
+    Align = alRight
+    Caption = 'Panel4'
+    TabOrder = 4
+  end
+end

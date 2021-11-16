@@ -80,11 +80,16 @@ begin
   //LazEditor_pr1_Test.ContentText:='Abelmoschus <b>Ackerveilchen</b> Affodill [b]Alberbaum[/b] Aloe Altee *Blutblume* **Blutwürze** Bockshornklee <fgColor="red">Bogenbaum Bohnenkraut Dittichrut Dragon Dreisdorn Einbeere';
 
   LazEditor_pr1_Test.SetText([TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
-                              StyleList2, TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
-                              StyleList1, TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet'),
-                              StyleList4, TLazEditorTextBox.Create('Bogenbaum Bohnenkraut Dittichrut '),
-                              StyleList1, TLazEditorTextBox.Create('Dragon Dreisdorn Einbeere ')
-
+                              TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
+                              TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet'),
+                              TLazEditorTextBox.Create('Bogenbaum Bohnenkraut Dittichrut '),
+                              TLazEditorTextBox.Create('Dragon Dreisdorn Einbeere '),
+                              TLazEditorTextBox.Create('Zypresse Zwiebeln Zwetschge Zupfblatteln '),
+                              TLazEditorTextBox.Create('Zosen Zizerlstrauch Zitwerwurzel Zitwer '),
+                              TLazEditorTextBox.Create('Weisskohl Weiderich Weberkarde Waldrebe '),
+                              TLazEditorTextBox.Create('Tulpe Trollblume Tripmadam '),
+                              TLazEditorTextBox.Create('Tremisse Traubenkraut Tragant Trabenkraut '),
+                              TLazEditorTextBox.Create('Thymian Teeminze Tausendschön Tater')
                              ]
                             );
 
