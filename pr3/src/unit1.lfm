@@ -1,0 +1,52 @@
+object Form1: TForm1
+  Left = 2000
+  Height = 652
+  Top = 168
+  Width = 1057
+  Caption = 'LazEditor PR3 Test von Mittwoch  dem 16.11.2021'
+  ClientHeight = 652
+  ClientWidth = 1057
+  OnCreate = FormCreate
+  LCLVersion = '2.3.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 602
+    Width = 1057
+    Align = alBottom
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 1057
+    Align = alTop
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 992
+    Height = 552
+    Top = 50
+    Width = 65
+    Align = alRight
+    TabOrder = 2
+  end
+  object Splitter1: TSplitter
+    Left = 987
+    Height = 552
+    Top = 50
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 552
+    Top = 50
+    Width = 987
+    Align = alClient
+    Caption = 'LazEditor PR3'
+    TabOrder = 4
+  end
+end
