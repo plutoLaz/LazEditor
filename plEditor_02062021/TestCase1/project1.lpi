@@ -4,7 +4,7 @@
     <Version Value="12"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="lazEditor_pr3"/>
+      <Title Value="project1"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -30,33 +30,26 @@
     </RequiredPackages>
     <Units>
       <Unit>
-        <Filename Value="lazEditor_pr3.lpr"/>
+        <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
-        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../u/ulazeditorpr3.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uLazEditorPR3"/>
       </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="/home/pluto/fpcupdeluxe8/Temp/lazEditor_pr3"/>
+      <Filename Value="project1"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../u"/>
-      <UnitOutputDirectory Value="/home/pluto/fpcupdeluxe8/Temp"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Options>

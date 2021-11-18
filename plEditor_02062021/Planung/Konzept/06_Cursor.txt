@@ -1,0 +1,40 @@
+Dokument Angelegt am Samstag dem 05.06.2021
+===========================================
+
+Es gibt eine Zentrale Zeilenlist. Die wird in der RootBox gespeichert.
+Jeder ContainerBox erzeugt, nun eine neue Zeile.
+
+Der Paragraph wird, von der RootBox verwaltet.
+Die RootBox selbst erzeugt keine neue Zeile.
+
+Damit würde eine Tabelle, da sie von der ContainerBox abgeleitet ist, eine neue Zeile erzeugen.
+Jede Zeile hat eine Spalte, die wiederum neue Zeilen aufnehmen kann.
+
+TPLEditor_Caret
++ CurrLine:TPLEditor_Line;
+Die AKtuelle Zeile.
+
++ CurrLineColumn:TPLEditor_LineColumn
+Die Aktuelle Spalte in der Zeile.
+
++ CurrContent:TPLEditor_CustomContent
+Der Aktuelle Content, ein Word oder eine Grafik.
+
++ CurrContentX:Integer;
+Ist nötig, um den Aktuellen Conten zu Manipulieren.
+
+Zum Zeichen muss Klar sein, wo der Cursor gezeichnet werden soll.
+Reichen, aber die vorherigen 3 Variablen aus?
+
+Mit der CurrLine hätte ich eine Top Position
+Mit CurrLineColumn wäre eine Left Position da.
+Wenn es ein ContentGibt, habe ich hier ein CurrContentLeft.
+
++ property Left:Integer read fLeft write fLeft;
++ property Top:Integer read fTop write fTop;
++ property Widht:Integer read fWidht write fWidht;
++ property Height:Integer read fHeight write fHeight;
+
+Was mir nicht so gut gefällt ist, dass so viele Angaben gesetzt werden müssen.
+
+Schön wäre, eine Cursor Zeichen Methode zu haben, die ohne Left, TOp, Width und Height auskommt.

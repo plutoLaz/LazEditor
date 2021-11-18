@@ -11,7 +11,7 @@ unit uLazEditorPR3;
 interface
 
 uses
-  Classes, SysUtils, Controls, Graphics, Contnrs;
+  Classes, SysUtils, Controls, Graphics, Contnrs, LCLType, LCLIntf, LCLProc, Types, LazUTF8;
 
 type
   {
@@ -141,26 +141,81 @@ begin
   Canvas.Font.Size:=12;
   Canvas.Font.Style:=[];
   Canvas.Font.Color:=clWindowText;
+  Canvas.Font.Pitch:=fpVariable;
 
   Canvas.Brush.Color:=clWindow;
   Canvas.Brush.Style:=bsSolid;
 end; // TLazEditorPR3.ResetStyle
 
 procedure TLazEditorPR3.Paint;
+//var
+//  Size:TSize;
 begin
   inherited Paint;
   ResetStyle();
   Canvas.FillRect(0,0, ClientWidth, ClientHeight);
+  Render();
 end; // TLazEditorPR3.Paint
 
 procedure TLazEditorPR3.Resize;
 begin
   inherited Resize;
+  Invalidate;
 end;
 
 procedure TLazEditorPR3.Render();
-begin
+  procedure _Render_Inline(aBox:TLazEditorBox; var aPX, aPY:Integer; aLineText:String);
+  var
+    ch:String;
+    len, i, x, px, pw:Integer;
+  begin
+    ch:=#0;
+    px:=aPX;
+    if aBox.Text <> '' then begin
+      len:=UTF8Length(aBox.Text);
+      for x:=1 to len do begin
+        ch:=UTF8Copy(aBox.Text, x, 1);
+        pw:=Canvas.TextWidth(ch);
+        if px + pw <ClientWidth then begin
+          px+=pw;
+          aLineText+=ch;
+        end
+        else begin
+          canvas.TextOut(aPX, aPY,aLineText);
+          aPY+=19;
+          px:=5;
+          aLineText:='';
+        end;
+      end; // for x
+    end;
 
+    for i:=0 to aBox.Count -1 do begin
+      _Render_Inline(aBox[i],aPX, aPY, aLineText);
+    end;
+  end; // _Render_Inline
+
+  procedure _Render(aBox:TLazEditorBox; var aPX, aPY:Integer);
+  var
+    i:Integer;
+  begin
+    for i:=0 to aBox.Count -1 do begin
+
+      if (aBox[i].Count > 1) and (aBox[i][0].Display = BD_INLINE) then begin
+        _Render_Inline(aBox[i], aPX, aPY, '');
+      end
+      else begin
+        if aBox[i].Count > 0 then begin
+          _Render(aBox[i], aPX, aPY);
+        end;
+      end;
+    end; // for i
+  end; // _Render
+var
+  px, py:Integer;
+begin
+  px:=5; py:=5;
+  _Render(RootBox, px, py);
+  writeln('   ');
 end; // TLazEditorPR3.Render
 
 procedure TLazEditorPR3.Debug_PrintBox(aBox: TLazEditorBox; const aLevel: String);

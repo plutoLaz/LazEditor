@@ -1,0 +1,91 @@
+Dokument Angelegt am Freitag dem 04.06.2021
+===========================================
+
+Mögliche Varianten für StyleValue:
+Variante 1: Über einen Einfache String. Value wäre hier ein String.
+    Wäre wohl die Einfachste Lösung. Ist aber unschön.
+
+Variante 2: Es gibt mehr als einen Value:
+    ValueString, ValueInt und soweiter.
+    So habe ich es schon einmal gemacht. Die Lösung gefällt mir aber nicht.
+
+Vairante 3: Über einzelne Klassen. Pro Datentyp gibt es eine Klasse.
+    Problem mit der Value Eigenschaft. Welcher Datentyp hat sie?
+    Es könnte eine ToCanvas Methode geben. Die das "regelt".
+
+    Macht es sinn, wenn jede Value Klasse, eine ToCanvas eigenschaft hätte?
+
+Variante 4: Variant.
+    Mehr Speicher verbraucht und dürfte Langsamer sein.
+
+Variante 5: record case
+    Hier muss offenbar der String, eine Festelänge haben. Unschön.
+
+Variante 6: Pointer.
+    Bei Pointer, gebe es das Problem, wie finde ich heraus den Datentyp herraus.
+
+-----------------------
+
+
+Variante 1 für "StyleValue"
+
+TPLEditor_StyleValue
+  TPLEditor_StyleStringValue(TPLDoc_StyleValue)
+  
+  TPLEditor_StyleIntegerValue(TPLDoc_StyleValue)
+  
+  TPLEditor_StyleFloatValue(TPLDoc_StyleValue)
+  
+  TPLEditor_StyleColorValue(TPLDoc_StyleValue)
+
+Die StyleValue Klasse hat nun eine Eigenschaft:
+Value:TPLEditor_StyleValue
+
+Diese Eigenchaft hat jetzt eine Getter und eine Setter Methode, als Virtual Abstract.
+In den jeweiligen Abgeleiteten Klassen, kann nun relativ einfach umgewandelt werden bzw. gesetzt werden:
+für Getter: result:=self
+für setter: color:=aValue
+Das ist noch unklar, dass müsste ich noch ausprobieren, wie das geht.
+
+Hier ist es unklar, ob das so geht. Weil ich bräuchte für den fontstyle auch ein set of.
+Vielleicht wären hier TVariants spannend, müsste ich aber vorher testen.
+  
+Variante 2 für "StyleValue"
+
+Mit Variant habe ich bisher gar keine Erfahrung gemacht.
+
+Allgemein:
+
+Beim StyleValue ist ja immer das Problem: Wie wird das am sinnvollsten verwaltet?
+Würde das vielleicht sogar ohne Casten gehen?
+
+
+TPLEditor_Style
++ StyleName:TPLDoc_StyleName;
++ StyleValue:TPLDoc_StyleValue;
+
+TPLEditor_StyleClass
++ Items:TObjectList;
+
+(+ funciton FindStyleByName(aStyleName:TPLDoc_StyleName):TPLDoc_StyleName;) ?
+Macht diese Methode wirklich ein Sinn?
+
++ procedure Assign(aFromStyleClass:TPLDoc_StyleClass);
++ function Compare(const aStyleClass:TPLDoc_StyleClass):boolean;
++ procedure ToCanvas(aCanvas);
+
++ property Item[const aItemIndex:Integer]:TPLDoc_Style;
++ property Count:Integer read GetCount;
++ property Name:String read fName write fName;
+
+Die Idee ist: Jede Style Kombination soll in einer StyleClass abgelegt werden.
+
+TPLEditor_StyleContainer
++ Items:TObjectList;
++ function FindStyleClassByName(const aValue:String):TPLDoc_StyleClass;
++ procedure Assign(aFromStyleContainer:TPLDoc_StyleContainer);
++ function Compare(const aStyleClass:TPLDoc_StyleClass):boolean;
++ property Item[const aItemIndex:Integer]:TPLDoc_StyleClass;
++ property Count:Integer read GetCount;
+
+Wäre für Vorlagen interssant.

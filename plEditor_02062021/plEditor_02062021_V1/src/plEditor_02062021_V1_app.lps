@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="plEditor_02062021_V1_app.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="25"/>
+        <UsageCount Value="137"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="23" Y="6"/>
+        <UsageCount Value="137"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_02062021.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uplEditor_02062021"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="15" Y="41"/>
+        <UsageCount Value="137"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uplEditor_Document"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="299"/>
+        <CursorPos X="43" Y="304"/>
+        <UsageCount Value="137"/>
+        <Bookmarks Count="4">
+          <Item0 X="17" Y="1076" ID="3"/>
+          <Item1 X="42" Y="482" ID="4"/>
+          <Item2 X="3" Y="1046" ID="1"/>
+          <Item3 Y="750" ID="2"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_style.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="203"/>
+        <CursorPos X="41" Y="204"/>
+        <UsageCount Value="132"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_styletype.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="28"/>
+        <CursorPos X="5" Y="42"/>
+        <UsageCount Value="121"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/ucolorlist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="658"/>
+        <CursorPos X="3" Y="674"/>
+        <UsageCount Value="101"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="401"/>
+        <CursorPos X="3" Y="416"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="947"/>
+        <CursorPos X="11" Y="987"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="114"/>
+        <CursorPos X="38" Y="131"/>
+        <UsageCount Value="52"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1029"/>
+        <CursorPos X="23" Y="1046"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-image/src/fpcanvas.pp"/>
+        <UnitName Value="FPCanvas"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="95"/>
+        <CursorPos X="18" Y="111"/>
+        <UsageCount Value="52"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/include/winapih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="127"/>
+        <CursorPos X="23" Y="154"/>
+        <UsageCount Value="1"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V5/src/unit1.pas"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="232"/>
+        <CursorPos X="23" Y="17"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V4/src/unit1.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V4/src/unit1.pas"/>
+        <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="158"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V3/src/unit1.pas"/>
+        <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="222"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../myNoteManager/plEditorComponent/V2/src/unit1.pas"/>
+        <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="51"/>
+        <CursorPos X="79" Y="56"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="94"/>
+        <CursorPos X="3" Y="108"/>
+        <UsageCount Value="6"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="701" Column="3" TopLine="690"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="262" Column="15" TopLine="259"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="1029" TopLine="1021"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="314" Column="15" TopLine="304"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="693" Column="27" TopLine="680"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="313" Column="15" TopLine="299"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="653" Column="26" TopLine="651"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="314" Column="15" TopLine="299"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="464" Column="74" TopLine="431"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="85" Column="15" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="431" Column="3" TopLine="427"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="701" Column="3" TopLine="693"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="262" Column="15" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="1028" Column="3" TopLine="1022"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="259" Column="15" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="894" Column="3" TopLine="888"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="332" Column="15" TopLine="315"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="611" Column="3" TopLine="609"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="314" Column="15" TopLine="290"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="84" Column="29" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="263" Column="15" TopLine="250"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="1046" Column="3" TopLine="1038"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="333" Column="15" TopLine="318"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="618" Column="3" TopLine="616"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="314" Column="15" TopLine="291"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="750" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="1046" Column="3" TopLine="1031"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <Caret Line="745" Column="47" TopLine="737"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="209" Column="10" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="9" Column="35"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default">
+        <Mode Name="default">
+          <local>
+            <LaunchingApplication Use="True" PathPlusParams="/usr/bin/mate-terminal -t &apos;Lazarus Run Output&apos; -e &apos;/home/pluto/fpcupdeluxe8/lazarus/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+          </local>
+        </Mode>
+      </Modes>
+    </RunParams>
+    <HistoryLists>
+      <List Name="LaunchingApplication" Type="File" Count="4">
+        <Item1 Value="/usr/bin/mate-terminal -t &apos;Lazarus Run Output&apos; -e &apos;/home/pluto/fpcupdeluxe8/lazarus/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+        <Item2 Value="/usr/bin/mate-terminal -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+        <Item3 Value="/usr/bin/xterm -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+        <Item4 Value="/usr/bin/mate-terminal -t &apos;Lazarus Run Output&apos; -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </List>
+    </HistoryLists>
+  </ProjectSession>
+</CONFIG>

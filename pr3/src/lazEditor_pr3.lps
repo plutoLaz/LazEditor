@@ -11,20 +11,34 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="34"/>
       </Unit>
       <Unit>
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="37"/>
-        <CursorPos X="39" Y="47"/>
-        <UsageCount Value="20"/>
+        <CursorPos X="21" Y="57"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/ulazeditorpr3.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uLazEditorPR3"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="170"/>
+        <CursorPos X="32" Y="193"/>
+        <UsageCount Value="34"/>
+        <Bookmarks Count="1">
+          <Item0 Y="200" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../../pr2/src/unit1.pas"/>
@@ -34,142 +48,144 @@
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="183" Y="20"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
-        <Filename Value="../u/ulazeditorpr3.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uLazEditorPR3"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="150"/>
-        <CursorPos X="39" Y="174"/>
-        <UsageCount Value="20"/>
-        <Bookmarks Count="1">
-          <Item0 X="3" Y="120" ID="1"/>
-        </Bookmarks>
-        <Loaded Value="True"/>
+        <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="541"/>
+        <CursorPos X="14" Y="555"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/include/winapih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="334"/>
+        <CursorPos X="10" Y="152"/>
+        <UsageCount Value="12"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="42" Column="74" TopLine="27"/>
+        <Caret Line="63" Column="15" TopLine="50"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="109" Column="56" TopLine="98"/>
+        <Caret Line="143" Column="3" TopLine="138"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="59" Column="17" TopLine="36"/>
+        <Caret Line="155" Column="13" TopLine="138"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="121" Column="36" TopLine="115"/>
+        <Caret Line="152" Column="14" TopLine="138"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="59" Column="17" TopLine="44"/>
+        <Caret Line="155" Column="37" TopLine="138"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="120" Column="3" TopLine="115"/>
+        <Caret Line="157" Column="67" TopLine="138"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="39" Column="85" TopLine="20"/>
+        <Caret Line="145" Column="27" TopLine="140"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="97" Column="3" TopLine="89"/>
+        <Caret Line="68" Column="15" TopLine="48"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="92" Column="19" TopLine="82"/>
+        <Caret Line="164" Column="32" TopLine="156"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="97" Column="23" TopLine="82"/>
+        <Caret Line="68" Column="22" TopLine="53"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="42" Column="17" TopLine="24"/>
+        <Caret Line="173" Column="34" TopLine="156"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="113" Column="55" TopLine="107"/>
+        <Caret Line="171" TopLine="159"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="39" Column="60" TopLine="29"/>
+        <Caret Line="68" Column="23" TopLine="53"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="100" Column="22" TopLine="88"/>
+        <Caret Line="179" Column="16" TopLine="164"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="42" Column="16" TopLine="25"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="44" Column="42" TopLine="25"/>
+        <Caret Line="190" Column="20" TopLine="164"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="42" Column="24" TopLine="27"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="36" Column="6" TopLine="25"/>
+        <Caret Line="198" Column="34" TopLine="183"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="109" Column="29" TopLine="105"/>
+        <Caret Line="203" Column="43" TopLine="190"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="69" Column="69" TopLine="42"/>
+        <Caret Line="65" Column="15" TopLine="52"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="166" TopLine="143"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="57" Column="53" TopLine="31"/>
+        <Caret Line="154" Column="21" TopLine="150"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="165" Column="24" TopLine="145"/>
+        <Caret Line="68" Column="15" TopLine="50"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="31" Column="14" TopLine="31"/>
+        <Caret Line="184" Column="21" TopLine="170"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="79" Column="24" TopLine="73"/>
+        <Caret Line="66" Column="15" TopLine="52"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="69" Column="14" TopLine="62"/>
+        <Caret Line="189" Column="36" TopLine="175"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="97" Column="37" TopLine="82"/>
+        <Caret Line="212" Column="31" TopLine="187"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="40" Column="37" TopLine="30"/>
+        <Caret Line="211" Column="6" TopLine="197"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="101" Column="27" TopLine="94"/>
+        <Caret Line="170" Column="33" TopLine="155"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditorpr3.pas"/>
-        <Caret Line="70" Column="17" TopLine="56"/>
+        <Caret Line="169" Column="24" TopLine="158"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditorpr3.pas"/>
+        <Caret Line="173" Column="24" TopLine="160"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditorpr3.pas"/>
+        <Caret Line="169" Column="5" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditorpr3.pas"/>
+        <Caret Line="183" Column="45" TopLine="165"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -183,11 +199,9 @@
       </Modes>
     </RunParams>
     <HistoryLists>
-      <List Name="WorkingDirectory" Type="File" Count="1"/>
-      <List Name="LaunchingApplication" Type="File" Count="2">
+      <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="/usr/bin/mate-terminal -t &apos;Lazarus Run Output&apos; -e &apos;/home/pluto/fpcupdeluxe8/lazarus/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
-      <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
 </CONFIG>

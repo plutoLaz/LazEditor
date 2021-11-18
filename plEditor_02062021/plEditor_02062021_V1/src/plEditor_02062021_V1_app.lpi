@@ -4,7 +4,7 @@
     <Version Value="12"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="lazEditor_pr3"/>
+      <Title Value="plEditor_02062021_V1_app"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -30,7 +30,7 @@
     </RequiredPackages>
     <Units>
       <Unit>
-        <Filename Value="lazEditor_pr3.lpr"/>
+        <Filename Value="plEditor_02062021_V1_app.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
@@ -42,21 +42,38 @@
         <UnitName Value="Unit1"/>
       </Unit>
       <Unit>
-        <Filename Value="../u/ulazeditorpr3.pas"/>
+        <Filename Value="../u/upleditor_02062021.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uLazEditorPR3"/>
+        <UnitName Value="uplEditor_02062021"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_document.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uplEditor_Document"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_style.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/upleditor_styletype.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../u/ucolorlist.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="/home/pluto/fpcupdeluxe8/Temp/lazEditor_pr3"/>
+      <Filename Value="../bin/plEditor_02062021_V1_app"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value="../u"/>
-      <UnitOutputDirectory Value="/home/pluto/fpcupdeluxe8/Temp"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Options>
