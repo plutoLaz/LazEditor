@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="126"/>
+        <CursorPos X="157" Y="134"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uplEditor_ZeilenTest"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="86"/>
+        <CursorPos X="47" Y="99"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../fpcupdeluxe8/lazarus/lcl/graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="171"/>
+        <CursorPos X="31" Y="189"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="515"/>
+        <CursorPos X="59" Y="523"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/src/unit1.pas"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="117"/>
+        <CursorPos X="33" Y="122"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditorcontrol.pas"/>
+        <UnitName Value="uPLTextEditorControl"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="56" Y="14"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="21">
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="32" Column="17" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="99" Column="19" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="51" Column="51" TopLine="35"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="174" Column="24" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="473" Column="33" TopLine="454"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="199" Column="68" TopLine="192"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="20" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="31" Column="41" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="112" Column="35" TopLine="85"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="161" Column="24" TopLine="134"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="162" Column="22" TopLine="135"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="183" Column="30" TopLine="156"/>
+      </Position>
+      <Position>
+        <Filename Value="../myNoteManager/plEditorComponent/V5/u/upltexteditordocument.pas"/>
+        <Caret Line="194" Column="22" TopLine="176"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="177" Column="28" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="176" Column="42" TopLine="161"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="18" Column="17" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="41" Column="22" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="175" Column="41" TopLine="157"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="42" Column="15" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="upleditor_zeilentest.pas"/>
+        <Caret Line="35" Column="73" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="133" Column="157" TopLine="125"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

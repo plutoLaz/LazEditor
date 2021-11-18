@@ -1,0 +1,24 @@
+Dokument Angelegt am Freitag dem 04.06.2021
+===========================================
+
+TPLEditor_CustomContent
+  + property StyleClass:TPLEditor_StyleClass read fStyleClass write fStyleClass;
+
+  TPLEditor_TextContent(TPLDoc_CustomContent)
+  + property Text:String read fText write fText;
+  
+  TPLEditor_ImageContent(TPLDoc_CustomContent)
+  + property Picture:TPicture read fPicture write fPicture;
+  
+Jedes ContentItem kann ein TextContent oder eine ImageContent sein.
+Ein TextContent kann ein Wort sein, es kann auch ein Teil Wort sein z.b. nur ein Buchstabe.
+  
+TPLEditor_ContentList
++ Items:TObjectList;
++ property Item[const aItemIndex:Integer]:TPLEditor_CustomContent;
++ property Count:Integer read GetCount;
+
+Im Cursor Object wird nun der Zeilen Index, sowie die Token Index gespeichert:
+Y, X.
+Wobei Y gar nicht Notwendig ist.
+

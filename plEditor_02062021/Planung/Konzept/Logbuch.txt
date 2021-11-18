@@ -1,0 +1,45 @@
+Dokument Angelegt am Montag dem 14.06.2021
+=============================
+
+Eintrag #02 vom 18.06.2021
+==================
+
+Ich frage mich immer noch, wie und ob ich weiter machen soll mit der Editor Komponente.
+Die frage ist einfach:
+Ist die Zentrale Zeilen Liste in der jetzigen Form ein Problem?
+
+Mein Ziel ist es, ein Absatz gezielt neu zu berechnen. Das geht nur sehr unschön mit der jetzigen Weg.
+Einen Absatz neu Rendern kann ich über StartLineIndex und EndlineIndex.
+
+Eintrag #01 vom Montag dem 14.06.2021
+=========================
+
+Es gibt ein Problem. Ich kann leider nicht, wie gedacht, einzelne z.b. Abstätze neu Layouten und Rendern.
+Der Grund ist, jeder Absatz hat ein StartLineInd und ein EndLineIndex, als Integer.
+
+Rendern kann ich schon neu, Problem ist jedoch beim Layouten.
+Ich kann zwar die Zeilen aus der LineList(die im Root Container verwaltet wird), löschen, die zum jeweiligen Absatzt gehören.
+Außerdem wäre es auch vorstellbar, das Hinzufügen von Zeilen anzupassen.
+
+Das Problem ist im Moment: Alle nachfolgenden Objekte.
+Es wird ja, der Start und End Line Index gespeichert, pro Absatz(im Moment).
+Hier müsste ich ein Weg finden, wie ich diese Variablen anpassen kann, wenn es neue Zeilen gibt.
+
+Auf der anderen Seite, ist das Überhaupt ein großes Problem?
+Wenn sich die Schrift Größe eines Text Content verändert, wird ja in der Regel eine oder mehrere neue Zeilen hinzugefügt.
+Das wiederum hätte einfluss, auf die nachfolgenden Paragraphen. Weil sich die Top Postion verändert.
+
+Eine Idee war es die LineList durch eine Verkette Liste zu ersetzten. Der Vorteil: Ich kann einfach die "alten" Zeilen raus nehmen und neue einfügen. Fertig.
+
+Es müsste halt nicht mehr der ganze Object Baum neu berechnet werden, sondern nur ein kleiner Teil und bei allen nachfolgenden Objekte, müsste die Top
+Position angepasst werden.
+Wäre das einfacher, als jetzt den Index anzupassen?
+
+Das wäre hier die Frage !
+Ich denke, einfacher wäre es, wenn der EndLineIndex, nur die Anzahl der Zeilen enthält und keinen absolute Wert.
+Somit müsste ich nur den StartIndex anpassen. Hier wäre jetzt die Frage, wie ich das am besten machen könnte.
+Mal überlegen...
+
+Plan: Ich werde die Zeilen zwischen StartLine und "Countline" löschen. Damit die Zeilen neu berechnet werden für den jeweiligen Absatzt.
+Dann muss ich jeden Top vom Absatz anpassen sowie die Top Position vom Line muss Relativ werden zum Absatz.
+Absatzt + Line.Top ergibt die py Position, wo die Zeile Anfängt.

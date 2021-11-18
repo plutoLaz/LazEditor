@@ -1,0 +1,65 @@
+Dokument Angelegt am Freitag den 4.06.2021
+==========================================
+
+Es geht um die Frage, nach einer eigenen wysiwyg Editor Komponente.
+Ich habe jetzt einige Erfahrung gemacht mit JavaScript Editoren, das schreiben damit ist nicht so das wahre. Dann sind die Abstände zwischen den Zeilen einfach zu groß. Es gibt immer wider div statt p Tags.
+
+Außerdem scheint die Cursor Steuerung auch ein Problem zu sein. Immer wieder wird an den Anfang vom Dokument gesprungen. Gerade bei längeren Texten ist das echt störend.
+
+
+
+<html>
+  <head>
+    <style>
+      style1 {
+        font-weight: bold;
+        font-style: italic;    
+      }
+  
+      style2 {
+        color: red;
+      }
+    </style> 
+  </head>  
+
+<body>
+
+<p>
+  Es geht um <span class="style1">die Frage</span>, nach einer <span class="style2">eigenen wysiwyg</span> Editor Komponente.
+  Ich habe jetzt einige Erfahrung gemacht mit JavaScript Editoren, das schreiben damit ist nicht so das wahre. Dann sind die Abstände zwischen den Zeilen einfach zu groß. Es gibt immer wider div statt p Tags.
+</p>
+
+<p>
+  Außerdem scheint die Cursor Steuerung auch ein Problem zu sein. Immer wieder wird an den Anfang vom Dokument gesprungen. Gerade bei längeren Texten ist das echt störend.
+</p>
+
+<table>
+  <theaed>
+    <tr>
+      <th> 
+        Spalte 1
+      </th>
+      
+      <th> 
+        Spalte 2
+      </th>
+      
+      <th> 
+        Spalte 3
+      </th>           
+    </tr>
+  </theaed>
+  
+  <tbody>
+    <tr>
+      <td>Spalte 1</td>
+      <td>Spalte 2</td>
+      <td>Spalte 3</td>
+    </tr>
+  </tbody>
+
+</table>
+
+</body>  
+
+</html>

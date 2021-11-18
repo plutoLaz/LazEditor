@@ -1,0 +1,80 @@
+Dokument Angelegt am Samstag dem 05.06.2021
+===========================================
+
+Teil 1 - Projekt Vorbereitungen - Abgeschlossen
+
+01) Neues "plEditor_02062021_V1" Verzeichnis anlegen.
+  02) Dadrin src anlegen
+  03) Dadrin bin anlegen
+  04) Dadrin u anlegen
+
+05) Neues "plEditor_02062021_V1_app" Projekt anlegen.
+
+06) Neue Unit: uplEditor_02062021 erstellen.
+
+  07) Dadrin eine neue Klasse hinzufügen: TPLEditor_02062021_V1
+    08) In dieser Klasse, einige Standard Methoden hinzufügen:
+      09) procedure Paint;
+      10) procedure BoundsChanged;
+
+      11) procedure KeyDown(var Key: Word; Shift: TShiftState); override;
+      12) procedure KeyPress(var Key: char); override;
+      13) procedure UTF8KeyPress(var UTF8Key: TUTF8Char); override;
+      14) procedure KeyUp(var Key: Word; Shift: TShiftState); override;
+
+      15) procedure MouseDown(...);
+      16) procedure MouseMove(...);
+      17) procedure MouseUp(...);
+
+  18) Neue Unit: uplEditor_Document erstellen
+
+    Hinweis: Siehe 04_Box.txt "Variante 3"
+    19) Dadrin die Klasse "TPLEditor_CustomBox" erstellen
+    20) Dadrin die Klasse "TPLEditor_ContainerBox" erstellen
+    21) Dadrin die Klasse "TPLEditor_RootBox" erstellen
+    22) Dadrin die Klasse "TPLEditor_Table" erstellen
+    23) Dadrin die Klasse "TPLEditor_List" erstellen
+    24) Dadrin die Klasse "TPLEditor_Paragraph" erstellen
+
+  25) Die Klasse TPLEditorDocument
+    26) Die Methode "Layout" in "TPLEditorDocument" hinzufügen
+    27) Die Methode "Render" in "TPLEditorDocument" hinzufügen
+
+Teil 2 Die ContentListe und die Dynamische Struktur hinzufügen - Abgeschlossen
+
+Hinweise: Siehe "02.Content.txt"
+01) TPLEditor_CustomContent in uplEditorDocument hinzufügen.
+02) TPLEditor_TextContent in uplEditorDocument hinzufügen.
+03) TPLEditor_ImageContent in uplEditorDocument hinzufügen.
+
+Hinweise: Siehe "03.Line.txt"
+04) TPLEditor_LineColumn in uplEditorDocument hinzufügen.
+05) TPLEditor_Line in uplEditorDocument hinzufügen.
+06) TPLEditor_LineList in uplEditorDocument hinzufügen.
+
+07) LineList in der RootBox hinzufügen.
+
+
+09) Die Layout Methode in der TPLEditor_ContainerBox hinzufügen.
+
+10) In der RootBox, die Layout Methode hinzufügen
+    Hinweis: Hier werden nur alle Boxen durchgegangen und dort die jeweilige Layout Methode aufgerufen.
+
+13) Die Layout Methode in der TPLEditor_Paragraph hinzufügen.
+
+Teil 3 Erste Test mit der Style Klasse. - Abgeschlossen
+
+Hinweis: Siehe 01_Style.txt
+01) Eine uplEditor_Style anlegen
+  02) Dort die Klasse "TPLEditorDoc_StyleValue" hinzufügen
+    02) Dort die Klasse "TPLEditorDoc_StyleStringValue" hinzufügen
+    03) Dort die Klasse "TPLEditorDoc_StyleIntegerValue" hinzufügen
+    04) Dort die Klasse "TPLEditorDoc_StyleFloatValue" hinzufügen
+    05) Dort die Klasse "TPLEditorDoc_StyleColorValue" hinzufügen
+
+  06) TPLEditor_StyleName als "set" hinzufügen
+
+  07) Dort die Klasse "TPLEditorDoc_Style" hinzufügen
+  08) Dort die Klasse "TPLEditorDoc_StyleClass" hinzufügen
+  09) Dort die Klasse "TPLEditorDoc_StyleContainer" hinzufügen
+
