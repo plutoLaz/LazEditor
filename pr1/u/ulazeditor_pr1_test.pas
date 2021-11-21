@@ -261,6 +261,20 @@ procedure TLazEditor_pr1_Test.Render();
     end;
   end; // ToCanvas
 
+  procedure TextRender(const aPx, aPy:Integer; const aLineText:String; aDefaultTM, aTempTM:TEXTMETRIC);
+  var
+    py:Integer;
+  begin
+    py:=0;
+    if aTempTM.tmHeight > aDefaultTM.tmHeight then begin
+      py:=aTempTM.tmAscent;
+    end
+    else
+      py:=+aTempTM.tmAscent;
+
+    Canvas.TextOut(aPx,aPy-py,aLineText);
+  end; // TextRender
+
 var
   LineItem:TLazEditorLongLine;
   TempLineText:String;
@@ -273,17 +287,17 @@ var
   LineStart:Integer;
   Size:TSize;
   XHeight:Integer;
-  DefaultTM:TEXTMETRIC;
+  DefaultTM, TempTM:TEXTMETRIC;
 begin
   px:=5; py:=5; pw:=0; ph:=0; LineStart:=px; LineText:='';
 
   ResetStyle();
-  XHeight:=Canvas.TextHeight('x'); // Ist leider nur die Texthöhe aber nicht die Buchstaben Höhe
-//  XLineHeight:=XHeight*3;
+  XHeight:=Canvas.TextHeight('Ae');
 
   LCLIntf.GetTextMetrics(Canvas.Handle, DefaultTM{%H-});
-  py:=5;
-  ph:=XHeight;
+  TempTM:=DefaultTM;
+  py:=20;
+  ph:=XHeight+5;
 
   for LineItem in LineList do begin
     TempLineText:=LineItem.GetLineText;
@@ -293,12 +307,13 @@ begin
       x:=x + 1;
       ch:=UTF8Copy(TempLineText, x, 1);
       if ch = #0 then begin
-        Canvas.TextOut(LineStart,py,LineText);
+       // Canvas.TextOut(LineStart,py,LineText);
+        TextRender(LineStart,py,LineText,DefaultTM, TempTM);
         LineStart:=px;
         LineText:='';
         ToCanvas(DefaultStyleList); // Im Moment gibt es noch keine "Vererbung" von Stylen.
         ToCanvas(LineItem.GetStyle);
-//        GetTextMetrics(Canvas.Handle, TempTM{%H-});
+        GetTextMetrics(Canvas.Handle, TempTM{%H-});
         continue;
       end;
 
@@ -312,8 +327,10 @@ begin
         px+=pw;
       end
       else begin
-        if LineText <> '' then
-          Canvas.TextOut(LineStart,py,LineText);
+        if LineText <> '' then begin
+          TextRender(LineStart,py,LineText,DefaultTM, TempTM);
+ //         Canvas.TextOut(LineStart,py,LineText)
+        end;
         LineText:=ch;
         LineStart:=5;
         px:=5 + pw;
@@ -324,7 +341,8 @@ begin
   end; // for LineItem
 
   if LineText <> '' then begin
-    Canvas.TextOut(LineStart,py,LineText);
+    TextRender(LineStart,py,LineText,DefaultTM, TempTM);
+  //  Canvas.TextOut(LineStart,py, LineText);
     LineText:='';
   end;
 end; // TLazEditor_pr1_Test.Render
