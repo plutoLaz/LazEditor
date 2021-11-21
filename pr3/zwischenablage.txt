@@ -1,0 +1,42 @@
+  var
+    px,py,ph, i, x, len:Integer;
+    TempBox:TLazEditorBox;
+    ch:String;
+    Size:TSize;
+  begin
+    px:=aPx; py:=aPy; ph:=aPh;
+    ph:=19;
+
+    if aBox.Display = BD_BLOCK then begin
+      Canvas.TextOut(aPxStart, apy, aLineText);
+      px:=5;
+      aLineText:='';
+      px:=5;
+      aPxStart:=5;
+    end;
+
+    for i:=0 to aBox.Count -1 do begin
+      TempBox:=aBox[i];
+      if TempBox.Text <> '' then begin
+        len:=UTF8Length(TempBox.Text);
+        for x:=1 to Len do begin
+          ch:=UTF8Copy(TempBox.Text, x, 1);
+          Size:=Canvas.TextExtent(ch);
+          if px + Size.cx <=ClientWidth then begin
+            px+=Size.cx;
+            aLineText+=ch;
+          end
+          else begin
+//            writeln(aPxStart, ' ', apy, ' ', aLineText);
+            Canvas.TextOut(aPxStart, apy, aLineText);
+            px:=5;
+            aLineText:='';
+            apy+=ph;
+          end;
+        end; // for x
+      end;
+
+      if TempBox.Count > 0 then begin
+        _Render(TempBox, aPxStart, px, apy, ph,aLineText);
+      end;
+    end; // for i
