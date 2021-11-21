@@ -64,12 +64,12 @@ begin
   StyleList2.Add(ESN_Color,'',clYellow);
   StyleList2.Add(ESN_BackgroundColor,'',clBlack);
   StyleList2.Add(ESN_FontStyle,'',0).ValueFonts:=[];
-  StyleList2.Add(ESN_FontSize,'',16);
+  StyleList2.Add(ESN_FontSize,'',18);
 
   StyleList3:=TLazEditorStyleList.Create;
   StyleList3.Add(ESN_Color,'',clWhite);
   StyleList3.Add(ESN_BackgroundColor,'',clRed);
-  StyleList3.Add(ESN_FontStyle,'',0).ValueFonts:=[fsBold];
+  StyleList3.Add(ESN_FontStyle,'',14).ValueFonts:=[fsBold];
 
   StyleList4:=TLazEditorStyleList.Create;
   StyleList4.Add(ESN_Color,'',clYellow);
