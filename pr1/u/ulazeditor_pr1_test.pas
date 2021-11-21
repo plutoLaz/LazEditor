@@ -190,7 +190,7 @@ begin
   ResetStyle();
 
   TextStyle:=Canvas.TextStyle;
-  TextStyle.Opaque:=True;
+  TextStyle.Opaque:=False;
   TextStyle.SystemFont:=False;
   Canvas.TextStyle:=TextStyle;
   DefaultStyleList:=nil;
@@ -261,9 +261,11 @@ procedure TLazEditor_pr1_Test.Render();
     end;
   end; // ToCanvas
 
-  procedure TextRender(const aPx, aPy:Integer; const aLineText:String; aDefaultTM, aTempTM:TEXTMETRIC);
+  procedure TextRender(const aPx, aPy:Integer; const aLineText:String; aDefaultTM, aTempTM:TEXTMETRIC; const aXHeight:Integer);
   var
     py:Integer;
+    r:TRect;
+    Size:TSize;
   begin
     py:=0;
     if aTempTM.tmHeight > aDefaultTM.tmHeight then begin
@@ -272,7 +274,25 @@ procedure TLazEditor_pr1_Test.Render();
     else
       py:=+aTempTM.tmAscent;
 
+    Size:=Canvas.TextExtent(aLineText);
+
+    r.Left:=aPx;
+    r.Top:=aPy-aDefaultTM.tmAscent;
+    r.Right:=r.left+Size.cx;
+    r.Bottom:=r.top+aXHeight;
+    // Hintergrund Zeichnen. Nun wird die ganze Höhe beachtet beim Hintergrund Zeichnen.
+    Canvas.FillRect(r);
+
+    Canvas.Brush.Style:=bsClear;
     Canvas.TextOut(aPx,aPy-py,aLineText);
+    Canvas.Brush.Style:=bsSolid;
+
+    if Canvas.Brush.Color = clWindow then
+      Canvas.Pen.Color:=clBlack
+    else
+      Canvas.Pen.Color:=InvertColor(Canvas.Brush.Color);
+    Canvas.MoveTo(r.left, r.top+aDefaultTM.tmAscent);
+    Canvas.LineTo(r.left+Size.cx, r.top+aDefaultTM.tmAscent);
   end; // TextRender
 
 var
@@ -307,11 +327,11 @@ begin
       x:=x + 1;
       ch:=UTF8Copy(TempLineText, x, 1);
       if ch = #0 then begin
-       // Canvas.TextOut(LineStart,py,LineText);
-        TextRender(LineStart,py,LineText,DefaultTM, TempTM);
+        if LineText <> '' then TextRender(LineStart,py,LineText,DefaultTM, TempTM, ph);
+
         LineStart:=px;
         LineText:='';
-        ToCanvas(DefaultStyleList); // Im Moment gibt es noch keine "Vererbung" von Stylen.
+        ToCanvas(DefaultStyleList);
         ToCanvas(LineItem.GetStyle);
         GetTextMetrics(Canvas.Handle, TempTM{%H-});
         continue;
@@ -319,29 +339,23 @@ begin
 
       Size:=Canvas.TextExtent(ch);
       pw:=Size.cx;
-//      TempPH:=Size.cy;
-//      if TempPH > ph then ph:=TempPH;
-
       if px + pw <=ClientWidth - pw then begin
         LineText+=ch;
         px+=pw;
       end
       else begin
-        if LineText <> '' then begin
-          TextRender(LineStart,py,LineText,DefaultTM, TempTM);
- //         Canvas.TextOut(LineStart,py,LineText)
-        end;
+        if LineText <> '' then
+          TextRender(LineStart,py,LineText,DefaultTM, TempTM, ph);
         LineText:=ch;
         LineStart:=5;
         px:=5 + pw;
         py+=ph;
-//        ph:=0;
       end;
     until x >= len;
   end; // for LineItem
 
   if LineText <> '' then begin
-    TextRender(LineStart,py,LineText,DefaultTM, TempTM);
+    TextRender(LineStart,py,LineText,DefaultTM, TempTM, ph);
   //  Canvas.TextOut(LineStart,py, LineText);
     LineText:='';
   end;
