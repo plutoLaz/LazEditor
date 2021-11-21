@@ -63,8 +63,24 @@ object Form1: TForm1
     Left = 0
     Height = 400
     Top = 0
-    Width = 807
+    Width = 744
     Align = alClient
     TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 749
+    Height = 400
+    Top = 0
+    Width = 58
+    Align = alRight
+    TabOrder = 2
+  end
+  object Splitter1: TSplitter
+    Left = 744
+    Height = 400
+    Top = 0
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
   end
 end
