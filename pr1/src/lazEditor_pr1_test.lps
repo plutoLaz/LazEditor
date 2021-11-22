@@ -7,9 +7,9 @@
       <Unit>
         <Filename Value="lazEditor_pr1_test.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="9"/>
         <CursorPos X="60" Y="9"/>
-        <UsageCount Value="161"/>
+        <UsageCount Value="175"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,9 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <TopLine Value="59"/>
-        <CursorPos X="59" Y="71"/>
-        <UsageCount Value="161"/>
+        <TopLine Value="76"/>
+        <CursorPos Y="99"/>
+        <UsageCount Value="175"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -31,31 +31,32 @@
         <UnitName Value="uLazEditor_pr1_Test"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="320"/>
-        <CursorPos X="68" Y="338"/>
-        <UsageCount Value="161"/>
-        <Bookmarks Count="3">
-          <Item0 Y="112" ID="3"/>
-          <Item1 X="25" Y="415" ID="2"/>
-          <Item2 X="25" Y="287" ID="1"/>
+        <TopLine Value="329"/>
+        <CursorPos Y="345"/>
+        <UsageCount Value="175"/>
+        <Bookmarks Count="4">
+          <Item0 Y="635" ID="4"/>
+          <Item1 X="3" Y="286" ID="1"/>
+          <Item2 X="3" Y="768" ID="2"/>
+          <Item3 X="3" Y="380" ID="3"/>
         </Bookmarks>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../u/ulazeditor_pr1_boxtype.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="40"/>
-        <CursorPos X="3" Y="55"/>
-        <UsageCount Value="123"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="11"/>
+        <CursorPos X="16" Y="17"/>
+        <UsageCount Value="137"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../u/ulazeditor_pr1_styletypes.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="8"/>
         <CursorPos X="63" Y="13"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="120"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -64,73 +65,73 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="25" Y="3"/>
-        <UsageCount Value="84"/>
+        <UsageCount Value="98"/>
       </Unit>
       <Unit>
         <Filename Value="../../pr2/u/ulazeditor_pr2_test.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="6"/>
-        <UsageCount Value="84"/>
+        <UsageCount Value="98"/>
       </Unit>
       <Unit>
         <Filename Value="../../pr2/u/ulazeditor_pr2_styletypes.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="5"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="96"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../entwicklung/Lazarus/myNoteManager/V7/u/uplnotecontainer_sqllite.pas"/>
         <UnitName Value="uplNoteContainer_SQLLite"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../entwicklung/Lazarus/myNoteManager/V7/u/uplnotecontainer.pas"/>
         <UnitName Value="uplNoteContainer"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../entwicklung/Lazarus/myNoteManager/V7B/u/uplnotecontainer2.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="66"/>
         <CursorPos X="31" Y="79"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-sdo/src/base/sdo_linked_list.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="10" Y="18"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-stl/src/glinkedlist.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos X="67" Y="49"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/components/lazutils/lazlinkedlist.pas"/>
         <UnitName Value="LazLinkedList"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-sdo/src/base/sdo_global.inc"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/rtl/inc/objpash.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="286"/>
         <CursorPos X="8" Y="301"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/components/lazutils/lazutf8.pas"/>
@@ -138,7 +139,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="101"/>
         <CursorPos X="10" Y="115"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../entwicklung/Lazarus/plEditor_02062021/plEditor_02062021_V1/u/upleditor_document.pas"/>
@@ -146,7 +147,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="808"/>
         <CursorPos X="21" Y="813"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
         <Bookmarks Count="1">
           <Item0 X="70" Y="995" ID="1"/>
         </Bookmarks>
@@ -157,48 +158,48 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1115"/>
         <CursorPos X="14" Y="1128"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/rtl/objpas/objpas.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos X="8" Y="35"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/include/intfbasewinapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1196"/>
         <CursorPos X="3" Y="1200"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="21"/>
         <CursorPos X="33" Y="28"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="182"/>
         <CursorPos X="3" Y="192"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/fpcsrc/rtl/objpas/sysutils/syshelph.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="5"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../entwicklung/Lazarus/plEditor_02062021/plEditor_02062021_V1/u/upleditor_styletype.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos X="3" Y="161"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="17"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../fpcupdeluxe8/lazarus/lcl/lcltype.pp"/>
@@ -206,15 +207,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2490"/>
         <CursorPos X="13" Y="2449"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="1072"/>
         <CursorPos X="15" Y="1084"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -222,42 +223,42 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="88"/>
         <CursorPos X="10" Y="103"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/mylibs/KControls/source/kmemo.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7887"/>
         <CursorPos X="34" Y="7892"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="22"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/mylibs/KControls/source/kgraphics.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1386"/>
         <CursorPos X="40" Y="1400"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="22"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="91"/>
         <CursorPos X="21" Y="94"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="15"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/include/canvas.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="998"/>
         <CursorPos X="3" Y="1007"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="13"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/include/intfbasewinapi.inc"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="902"/>
         <CursorPos X="3" Y="904"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -266,7 +267,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2434"/>
         <CursorPos X="23" Y="2452"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/themes.pas"/>
@@ -274,35 +275,35 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="65"/>
         <CursorPos X="28" Y="94"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/rtl/inc/typshrdh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="17" Y="52"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/rtl/inc/typshrd.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="48"/>
         <CursorPos X="3" Y="50"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6095"/>
         <CursorPos X="41" Y="6108"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="130"/>
         <CursorPos X="12" Y="144"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2def.pp"/>
@@ -310,7 +311,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="332"/>
         <CursorPos X="45" Y="346"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2int.pas"/>
@@ -318,21 +319,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="166"/>
         <CursorPos X="15" Y="191"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6074"/>
         <CursorPos X="25" Y="6070"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/packages/gtk2/src/pango/pango-layout.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos X="11" Y="63"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/interfaces/gtk2/gtk2fontcache.pas"/>
@@ -340,152 +341,162 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="68"/>
         <CursorPos X="5" Y="34"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-stl/src/glinkedlist.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="30"/>
-        <CursorPos X="31" Y="76"/>
-        <UsageCount Value="9"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="60"/>
+        <CursorPos X="14" Y="76"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/rtl/inc/objpash.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="286"/>
         <CursorPos X="8" Y="301"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../../plEditor_02062021/plEditor_02062021_V1/u/upleditor_document.pas"/>
         <UnitName Value="uplEditor_Document"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="963"/>
         <CursorPos X="60" Y="966"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../../../../../fpcupdeluxe8/fpcsrc/packages/fcl-stl/tests/glinkedlisttest.pp"/>
+        <UnitName Value="LLTest"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="123"/>
+        <CursorPos X="13" Y="139"/>
+        <UsageCount Value="13"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="421" Column="46" TopLine="410"/>
+        <Caret Line="286" Column="23" TopLine="275"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="415" Column="29" TopLine="403"/>
+        <Caret Line="85" Column="47" TopLine="69"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="424" Column="23" TopLine="413"/>
+        <Caret Line="213" Column="67" TopLine="213"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="423" Column="60" TopLine="409"/>
+        <Caret Line="62" Column="47" TopLine="56"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="50" Column="17" TopLine="31"/>
+        <Caret Line="374" Column="67" TopLine="373"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="103" Column="16" TopLine="99"/>
+        <Caret Line="39" Column="47" TopLine="35"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="78" Column="17" TopLine="65"/>
+        <Caret Line="339" Column="24" TopLine="328"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="420" Column="36" TopLine="405"/>
+        <Caret Line="296" TopLine="281"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="81" Column="15" TopLine="64"/>
+        <Caret Line="634" TopLine="620"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="437" Column="9" TopLine="431"/>
+        <Caret Line="767" Column="3" TopLine="752"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="77" Column="15" TopLine="67"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="78" Column="73" TopLine="70"/>
+        <Caret Line="379" Column="3" TopLine="364"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="195" Column="20" TopLine="182"/>
+        <Caret Line="634" TopLine="620"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="191" TopLine="182"/>
+        <Caret Line="379" Column="3" TopLine="364"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="74" Column="17" TopLine="59"/>
+        <Caret Line="767" Column="3" TopLine="752"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="188" Column="3" TopLine="183"/>
+        <Caret Line="304" TopLine="285"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="77" Column="19" TopLine="73"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="65" Column="19" TopLine="62"/>
+        <Caret Line="316" Column="18" TopLine="297"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="275" Column="25" TopLine="262"/>
+        <Caret Line="308" Column="20" TopLine="294"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="74" Column="15" TopLine="63"/>
+        <Caret Line="311" Column="45" TopLine="292"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="193" Column="26" TopLine="182"/>
+        <Caret Line="292" Column="16" TopLine="281"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="276" Column="7" TopLine="261"/>
+        <Caret Line="634" TopLine="623"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="281" Column="26" TopLine="259"/>
-      </Position>
-      <Position>
-        <Filename Value="../../../../../../fpcupdeluxe8/lazarus/lcl/graphics.pp"/>
-        <Caret Line="1084" Column="15" TopLine="1072"/>
-      </Position>
-      <Position>
-        <Filename Value="../../plEditor_02062021/plEditor_02062021_V1/u/upleditor_document.pas"/>
-        <Caret Line="333" Column="27" TopLine="322"/>
-      </Position>
-      <Position>
-        <Filename Value="../../plEditor_02062021/plEditor_02062021_V1/u/upleditor_document.pas"/>
-        <Caret Line="617" Column="15" TopLine="616"/>
-      </Position>
-      <Position>
-        <Filename Value="../../plEditor_02062021/plEditor_02062021_V1/u/upleditor_document.pas"/>
-        <Caret Line="260" Column="15" TopLine="246"/>
+        <Caret Line="286" Column="3" TopLine="272"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="278" Column="59" TopLine="266"/>
+        <Caret Line="767" Column="3" TopLine="752"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="280" Column="50" TopLine="259"/>
+        <Caret Line="305" Column="30" TopLine="290"/>
       </Position>
       <Position>
         <Filename Value="../u/ulazeditor_pr1_test.pas"/>
-        <Caret Line="290" Column="47" TopLine="273"/>
+        <Caret Line="629" Column="26" TopLine="620"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="329" Column="32" TopLine="321"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="669" TopLine="647"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="767" Column="3" TopLine="752"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="379" Column="3" TopLine="364"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="669" TopLine="648"/>
+      </Position>
+      <Position>
+        <Filename Value="../u/ulazeditor_pr1_test.pas"/>
+        <Caret Line="145" Column="15" TopLine="131"/>
       </Position>
     </JumpHistory>
     <RunParams>
