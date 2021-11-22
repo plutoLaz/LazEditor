@@ -16,6 +16,76 @@ uses
   ulazeditor_pr1_boxtype, ulazeditor_pr1_styletypes;
 
 type
+  TLazEditorLongLine = class;
+
+  // Warum das Nötig ist, weiß ich im Moment nicht. Sonst geht die "For/In schleife" meine ich nicht.
+  TLazEditorLineLL = specialize TLinkedList<TLazEditorLongLine>;
+
+  { TLazEditorBoxExt }
+  TLazEditorBoxExt = class
+  private
+    fHeight: Integer;
+    fName: string;
+    fWidth: Integer;
+
+  protected
+
+  public
+    LineList:TLazEditorLineLL;
+    StyleList:TLazEditorStyleList;
+    constructor Create(aLineList:TLazEditorLineLL);
+    destructor Destroy; override;
+
+    procedure Render(var aLeft, aTop:Integer; aCanvas:TCanvas); virtual;
+
+    property Name:string read fName write fName;
+
+    property Width:Integer read fWidth write fWidth;
+    property Height:Integer read fHeight write fHeight;
+  published
+  end; // TLazEditorBox
+
+  { TLazEditorBoxContainer }
+  TLazEditorBoxContainer = class(TLazEditorBoxExt)
+  private
+    function GetCount: Integer;
+    function GetItem(const aItemIndex: Integer): TLazEditorBoxExt;
+
+  protected
+
+  public
+    Items:TObjectList;
+
+    constructor Create(aLineList:TLazEditorLineLL);
+    destructor Destroy; override;
+
+    procedure Render(var aLeft, aTop:Integer; aCanvas:TCanvas); override;
+
+    property Count:Integer read GetCount;
+    property Item[const aItemIndex:Integer]:TLazEditorBoxExt read GetItem; default;
+  published
+  end; // TLazEditorBoxContainer
+
+  { TLazEditorBoxParagraph }
+  TLazEditorBoxParagraph = class(TLazEditorBoxExt)
+  private
+
+  protected
+
+  public
+    StartLongLine:TLazEditorLongLine;
+    EndLongLine:TLazEditorLongLine;
+    StartItem, EndItem: TLazEditorLineLL.PItem;
+
+    constructor Create(aLineList:TLazEditorLineLL);
+    destructor Destroy; override;
+
+    procedure SetText(const aBoxArray:TLazEditorBoxArray);
+
+    procedure Render(var aLeft, aTop:Integer; aCanvas:TCanvas); override;
+  published
+  end; // TLazEditorBoxParagraph
+
   ILazEditorLongLineIntf = interface
     function GetLineText: String;
     function GetStyle: TLazEditorStyleList;
@@ -33,9 +103,6 @@ type
     function GetLineText: String;
     function GetStyle: TLazEditorStyleList;
   end;
-
-  // Warum das Nötig ist, weiß ich im Moment nicht. Sonst geht die "For/In schleife" meine ich nicht.
-  TLazEditorLineLL = specialize TLinkedList<TLazEditorLongLine>;
 
   { TLazEditorLineItem }
   TLazEditorLineItem = class
@@ -70,12 +137,14 @@ type
   public
     // Speichert die einzelnen Elemente der langen Zeile
     LineList:TLazEditorLineLL;
+    RootBox:TLazEditorBoxContainer;
 
     constructor Create({%H-}AOwner: TComponent); override;
     destructor Destroy; override;
 
     procedure Render();
     procedure Render2();
+    procedure Render3();
 
     procedure BoundsChanged; override;
     procedure Paint; override;
@@ -95,6 +164,246 @@ operator :=(const AValue: String): TLazEditorLongLine;
 begin
   Result := TLazEditorLongLine.Create(AValue,nil);
 end;
+
+{ TLazEditorBoxParagraph }
+constructor TLazEditorBoxParagraph.Create(aLineList: TLazEditorLineLL);
+begin
+  inherited Create(aLineList);
+  StartLongLine:=nil;
+  EndLongLine:=nil;
+  StartItem:=nil;
+  EndItem:=nil;
+end; // TLazEditorBoxParagraph.Create
+
+destructor TLazEditorBoxParagraph.Destroy;
+begin
+  inherited Destroy;
+end; // TLazEditorBoxParagraph.Destroy
+
+procedure TLazEditorBoxParagraph.SetText(const aBoxArray: TLazEditorBoxArray);
+var
+  box:TLazEditorBox;
+  TempLongLine:TLazEditorLongLine;
+
+  TextBox:TLazEditorTextBox;
+  TempStyleList:TLazEditorStyleList;
+
+  Item:TLazEditorLineLL.PItem;
+begin
+  StartLongLine:=nil;
+  EndLongLine:=nil;
+  for box in aBoxArray do begin
+    if box is TLazEditorTextBox then begin
+      TextBox:=box as TLazEditorTextBox;
+      TempLongLine:=TLazEditorLongLine.Create(TextBox.Text,nil);
+      Item:=LineList.InsertLast(TempLongLine);
+    end
+    else begin
+      TempStyleList:=box as TLazEditorStyleList;
+      TempLongLine:=TLazEditorLongLine.Create(#0,TempStyleList);
+      Item:=LineList.InsertLast(TempLongLine);
+    end;
+
+    if not Assigned(StartItem) then StartItem:=Item;
+  end;
+
+ EndItem:=Item;
+end; // TLazEditorBoxParagraph.SetText
+
+procedure TLazEditorBoxParagraph.Render(var aLeft, aTop: Integer; aCanvas: TCanvas);
+  procedure ToCanvas(aStyle:TLazEditorStyleList);
+  var
+    i:Integer;
+    Style:TLazEditorStyle;
+  begin
+    for i:=0 to aStyle.Count -1  do begin
+      Style:=aStyle[i];
+      case Style.Name of
+        ESN_Color: aCanvas.Font.Color:=style.ValueInt;
+        ESN_BackgroundColor: aCanvas.Brush.Color:=style.ValueInt;
+        ESN_FontStyle: aCanvas.Font.Style:=style.ValueFonts;
+        ESN_FontSize: aCanvas.Font.Size:=style.ValueInt;
+
+        else begin
+
+        end;
+      end;
+    end;
+  end; // ToCanvas
+
+  procedure TextRender(const aPx, aPy:Integer; const aLineText:String; aDefaultTM, aTempTM:TEXTMETRIC; const aXHeight:Integer);
+  var
+    py:Integer;
+    r:TRect;
+    Size:TSize;
+  begin
+    py:=0;
+    if aTempTM.tmHeight > aDefaultTM.tmHeight then begin
+      py:=aTempTM.tmAscent;
+    end
+    else
+      py:=+aTempTM.tmAscent;
+
+    Size:=aCanvas.TextExtent(aLineText);
+
+    r.Left:=aPx;
+    r.Top:=aPy-aDefaultTM.tmAscent;
+    r.Right:=r.left+Size.cx;
+    r.Bottom:=r.top+aXHeight;
+    // Hintergrund Zeichnen. Nun wird die ganze Höhe beachtet beim Hintergrund Zeichnen.
+    aCanvas.FillRect(r);
+
+    aCanvas.Brush.Style:=bsClear;
+    aCanvas.TextOut(aPx,aPy-py,aLineText);
+    aCanvas.Brush.Style:=bsSolid;
+
+    if aCanvas.Brush.Color = clWindow then
+      aCanvas.Pen.Color:=clBlack
+    else
+      aCanvas.Pen.Color:=InvertColor(aCanvas.Brush.Color);
+    aCanvas.MoveTo(r.left, r.top+aDefaultTM.tmAscent);
+    aCanvas.LineTo(r.left+Size.cx, r.top+aDefaultTM.tmAscent);
+  end; // TextRender
+
+  procedure _AutoLineBreak(const aLineText:String; var _aLeft, _aTop:Integer; aLineItem:TLazEditorLongLine);
+//  var
+  begin
+  end;
+
+var
+  LineItem:TLazEditorLongLine;
+  TempLineText:String;
+  Item:TLazEditorLineLL.PItem;
+
+  px, ph, x, len, pw:Integer;
+  XHeight:Integer;
+  ch:String;
+  LineText:String;
+  Size:TSize;
+  DefaultTM, TempTM:TEXTMETRIC;
+
+begin
+  inherited Render(aLeft, aTop, aCanvas);
+  LineText:='';
+  writeln(Name, ' Width: ', Width, ' aTop: ', aTop);
+
+  px:=aLeft;
+
+  ToCanvas(StyleList);
+  XHeight:=aCanvas.TextHeight('Ae');
+  ph:=XHeight;
+
+  LCLIntf.GetTextMetrics(aCanvas.Handle, DefaultTM{%H-});
+  TempTM:=DefaultTM;
+
+  Item:=StartItem;
+  repeat
+    LineItem:=(item^.Data as TLazEditorLongLine);
+    TempLineText:=LineItem.GetLineText;
+    len:=UTF8Length(TempLineText);
+
+    x:=0;
+    repeat
+      x:=x + 1;
+      ch:=UTF8Copy(TempLineText, x, 1);
+      if ch = #0 then begin
+        if LineText <> '' then
+          TextRender(aLeft,aTop,TempLineText,DefaultTM, TempTM, ph);
+
+        aLeft:=px;
+        LineText:='';
+        ToCanvas(StyleList);
+        ToCanvas(LineItem.GetStyle);
+        GetTextMetrics(aCanvas.Handle, TempTM{%H-});
+        continue;
+      end;
+
+      Size:=aCanvas.TextExtent(ch);
+      pw:=Size.cx;
+      if px + pw <=Width- pw then begin
+        LineText+=ch;
+        px+=pw;
+      end
+      else begin
+        if LineText <> '' then begin
+          TextRender(aLeft,aTop,LineText,DefaultTM, TempTM, ph);
+        end;
+        LineText:=ch;
+        aLeft:=5;
+        px:=5 + pw;
+        aTop+=ph;
+      end;
+    until x >= len;
+
+    if Item = EndItem then break;
+    item:=Item^.Next;
+  until false;
+
+  if LineText <> '' then begin
+    TextRender(aLeft,aTop,LineText,DefaultTM, TempTM, ph);
+    aTop+=ph;
+    LineText:='';
+  end;
+
+  writeln('');
+
+end; // TLazEditorBoxParagraph.Render
+
+function TLazEditorBoxContainer.GetCount: Integer;
+begin
+  result:=Items.Count;
+end; // TLazEditorBoxContainer.GetCount
+
+function TLazEditorBoxContainer.GetItem(const aItemIndex: Integer): TLazEditorBoxExt;
+begin
+  result:=Items[aItemIndex] as TLazEditorBoxExt;
+end; // TLazEditorBoxContainer.GetItem
+
+{ TLazEditorBoxContainer }
+constructor TLazEditorBoxContainer.Create(aLineList: TLazEditorLineLL);
+begin
+  inherited Create(aLineList);
+  Items:=TObjectList.Create(False);
+  Items.OwnsObjects:=False;
+end; // TLazEditorBoxContainer.Create
+
+destructor TLazEditorBoxContainer.Destroy;
+begin
+  FreeAndNil(Items);
+  inherited Destroy;
+end; // TLazEditorBoxContainer.Destroy
+
+procedure TLazEditorBoxContainer.Render(var aLeft, aTop: Integer; aCanvas: TCanvas);
+var
+  i:Integer;
+begin
+  inherited Render(aLeft,aTop, aCanvas);
+  for i:=0 to Count -1 do begin
+    Item[i].Width:=Width;
+    Item[i].Render(aLeft, aTop, aCanvas);
+  end;
+end; // TLazEditorBoxContainer.Render
+
+{ TLazEditorBoxExt }
+constructor TLazEditorBoxExt.Create(aLineList: TLazEditorLineLL);
+begin
+  inherited Create;
+  StyleList:=nil;
+  fName:='';
+  fWidth:=-1;
+  fHeight:=-1;
+  LineList:=aLineList;
+end; // TLazEditorBoxExt.Create
+
+destructor TLazEditorBoxExt.Destroy;
+begin
+  inherited Destroy;
+end; // TLazEditorBoxExt.Destroy
+
+procedure TLazEditorBoxExt.Render(var aLeft, aTop: Integer; aCanvas: TCanvas);
+begin
+
+end; // TLazEditorBoxExt.Render
 
 { TLazEditorLineItem }
 constructor TLazEditorLineItem.Create;
@@ -194,11 +503,13 @@ begin
   TextStyle.SystemFont:=False;
   Canvas.TextStyle:=TextStyle;
   DefaultStyleList:=nil;
+
+  RootBox:=TLazEditorBoxContainer.Create(LineList);
 end; // TLazEditor_pr1_Test.Create
 
 destructor TLazEditor_pr1_Test.Destroy;
 begin
-  FreeAndNil(LineList);
+  FreeAndNil(LineList); FreeAndNil(RootBox);
   inherited Destroy;
 end; // TLazEditor_pr1_Test.Destroy
 
@@ -449,6 +760,15 @@ begin
   FreeAndNil(aLineList);
 end; // TLazEditor_pr1_Test.Render2
 
+procedure TLazEditor_pr1_Test.Render3();
+var
+  px, py:Integer;
+begin
+  px:=5; py:=20;
+  RootBox.Width:=ClientWidth;
+  RootBox.Render(px, py, Canvas);
+end; // TLazEditor_pr1_Test.Render3
+
 procedure TLazEditor_pr1_Test.BoundsChanged;
 begin
   inherited BoundsChanged;
@@ -460,7 +780,7 @@ begin
   inherited Paint;
   Canvas.Brush.Color:=clWindow;
   Canvas.FillRect(0, 0, ClientWidth, ClientHeight);
-  Render();
+  Render3();
 end; // TLazEditor_pr1_Test.Paint
 
 procedure TLazEditor_pr1_Test.SetText(const aBoxArray: TLazEditorBoxArray);
