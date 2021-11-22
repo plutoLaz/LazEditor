@@ -43,6 +43,8 @@ implementation
 
 { TForm1 }
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  P1, P2:TLazEditorBoxParagraph;
 begin
   Randomize;
   Liste_Kraut:=TStringList.Create;
@@ -77,11 +79,30 @@ begin
   StyleList4.Add(ESN_FontStyle,'',0).ValueFonts:=[];
   StyleList4.Add(ESN_FontSize,'',12);
 
+  P1:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
+  P1.Name:='P1';
+  P1.StyleList:=StyleList1;
+  P1.SetText([TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
+              TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
+              TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet')
+             ]);
+
+  LazEditor_pr1_Test.RootBox.Items.Add(P1);
+
+  P2:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
+  P2.StyleList:=StyleList1;
+  P2.Name:='P2';
+  P2.SetText([TLazEditorTextBox.Create('Zypresse Zwiebeln Zwetschge Zupfblatteln '),
+              TLazEditorTextBox.Create('Zosen Zizerlstrauch Zitwerwurzel Zitwer '),
+              TLazEditorTextBox.Create('Weisskohl Weiderich Weberkarde Waldrebe ')
+             ]);
+  LazEditor_pr1_Test.RootBox.Items.Add(P2);
+
 
 // LazEditor_pr1_Test.ContentText:='Dies ist ein langer langer Text mit Umlauten(ÖÄÜ,öäü) ♠';
   //LazEditor_pr1_Test.ContentText:='Abelmoschus <b>Ackerveilchen</b> Affodill [b]Alberbaum[/b] Aloe Altee *Blutblume* **Blutwürze** Bockshornklee <fgColor="red">Bogenbaum Bohnenkraut Dittichrut Dragon Dreisdorn Einbeere';
 
-  LazEditor_pr1_Test.SetText([StyleList1, TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
+{  LazEditor_pr1_Test.SetText([StyleList1, TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
                               StyleList2, TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
                               StyleList1, TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet'),
                               StyleList2, TLazEditorTextBox.Create('Bogenbaum Bohnenkraut Dittichrut '),
@@ -94,7 +115,7 @@ begin
                               StyleList1, TLazEditorTextBox.Create('Thymian Teeminze Tausendschön Tater')
                              ]
                             );
-
+ }
 //  LazEditor_pr1_Test.ContentText:='Abelmoschus Ackerveilchen Affodill Alberbaum Aloe Altee Blutblume Blutwürze Bockshornklee Bogenbaum Bohnenkraut Dittichrut Dragon Dreisdorn Einbeere';
 end;
 
