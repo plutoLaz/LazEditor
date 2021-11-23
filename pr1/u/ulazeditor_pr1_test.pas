@@ -265,11 +265,6 @@ procedure TLazEditorBoxParagraph.Render(var aLeft, aTop: Integer; aCanvas: TCanv
     aCanvas.LineTo(r.left+Size.cx, r.top+aDefaultTM.tmAscent);
   end; // TextRender
 
-  procedure _AutoLineBreak(const aLineText:String; var _aLeft, _aTop:Integer; aLineItem:TLazEditorLongLine);
-//  var
-  begin
-  end;
-
 var
   LineItem:TLazEditorLongLine;
   TempLineText:String;
@@ -281,7 +276,6 @@ var
   LineText:String;
   Size:TSize;
   DefaultTM, TempTM:TEXTMETRIC;
-
 begin
   inherited Render(aLeft, aTop, aCanvas);
   LineText:='';
@@ -295,6 +289,7 @@ begin
 
   LCLIntf.GetTextMetrics(aCanvas.Handle, DefaultTM{%H-});
   TempTM:=DefaultTM;
+  aTop+=ph;
 
   Item:=StartItem;
   repeat
@@ -308,7 +303,7 @@ begin
       ch:=UTF8Copy(TempLineText, x, 1);
       if ch = #0 then begin
         if LineText <> '' then
-          TextRender(aLeft,aTop,TempLineText,DefaultTM, TempTM, ph);
+          TextRender(aLeft,aTop,LineText,DefaultTM, TempTM, ph);
 
         aLeft:=px;
         LineText:='';
@@ -341,7 +336,7 @@ begin
 
   if LineText <> '' then begin
     TextRender(aLeft,aTop,LineText,DefaultTM, TempTM, ph);
-    aTop+=ph;
+//    aTop+=ph;
     LineText:='';
   end;
 
@@ -380,6 +375,7 @@ begin
   inherited Render(aLeft,aTop, aCanvas);
   for i:=0 to Count -1 do begin
     Item[i].Width:=Width;
+    aLeft:=5;
     Item[i].Render(aLeft, aTop, aCanvas);
   end;
 end; // TLazEditorBoxContainer.Render
@@ -764,7 +760,7 @@ procedure TLazEditor_pr1_Test.Render3();
 var
   px, py:Integer;
 begin
-  px:=5; py:=20;
+  px:=5; py:=0;
   RootBox.Width:=ClientWidth;
   RootBox.Render(px, py, Canvas);
 end; // TLazEditor_pr1_Test.Render3
