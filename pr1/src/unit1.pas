@@ -44,7 +44,7 @@ implementation
 { TForm1 }
 procedure TForm1.FormCreate(Sender: TObject);
 var
-  P1, P2:TLazEditorBoxParagraph;
+  P1, P2, P3:TLazEditorBoxParagraph;
 begin
   Randomize;
   Liste_Kraut:=TStringList.Create;
@@ -82,9 +82,10 @@ begin
   P1:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
   P1.Name:='P1';
   P1.StyleList:=StyleList1;
-  P1.SetText([TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
-              TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
-              TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet')
+  P1.SetText([StyleList1,TLazEditorTextBox.Create('Abelmoschus Ackerveilchen gehen Affodill Alberbaum Aloe'),
+              StyleList2,TLazEditorTextBox.Create('Blutblume Gefahr Blutwürze Bockshornklee '),
+
+              StyleList1,TLazEditorTextBox.Create('Bärenklau Bärlapp Bermet')
              ]);
 
   LazEditor_pr1_Test.RootBox.Items.Add(P1);
@@ -92,11 +93,22 @@ begin
   P2:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
   P2.StyleList:=StyleList1;
   P2.Name:='P2';
-  P2.SetText([TLazEditorTextBox.Create('Zypresse Zwiebeln Zwetschge Zupfblatteln '),
-              TLazEditorTextBox.Create('Zosen Zizerlstrauch Zitwerwurzel Zitwer '),
-              TLazEditorTextBox.Create('Weisskohl Weiderich Weberkarde Waldrebe ')
+  P2.SetText([StyleList1,TLazEditorTextBox.Create('Zypresse Zwiebeln Zwetschge Zupfblatteln '),
+              StyleList2,TLazEditorTextBox.Create('Zosen Zizerlstrauch Zitwerwurzel Zitwer '),
+              StyleList1,TLazEditorTextBox.Create('Weisskohl Weiderich Weberkarde Waldrebe ')
              ]);
   LazEditor_pr1_Test.RootBox.Items.Add(P2);
+
+  P3:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
+  P3.StyleList:=StyleList3;
+  P3.Name:='P3';
+  P3.SetText([TLazEditorTextBox.Create('Rotwurz Rosskastanie Sanddorn '),
+              TLazEditorTextBox.Create('Sandsegge Saudistel Saukraut '),
+              TLazEditorTextBox.Create('Schillerlilie Schlehdorn Schöllkraut '),
+              TLazEditorTextBox.Create('Sinau Singrün Sonnenhut Spirulina')
+             ]);
+  LazEditor_pr1_Test.RootBox.Items.Add(P3);
+
 
 
 // LazEditor_pr1_Test.ContentText:='Dies ist ein langer langer Text mit Umlauten(ÖÄÜ,öäü) ♠';
