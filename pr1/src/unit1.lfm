@@ -1,83 +1,53 @@
 object Form1: TForm1
-  Left = 2396
-  Height = 450
-  Top = 393
-  Width = 807
+  Left = 573
+  Height = 807
+  Top = 173
+  Width = 1173
   Caption = 'LazEditor PR1 Test von Mittwoch dem 03.11.2021'
-  ClientHeight = 450
-  ClientWidth = 807
+  ClientHeight = 807
+  ClientWidth = 1173
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '2.3.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 400
-    Width = 807
+    Top = 757
+    Width = 1173
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 807
+    ClientWidth = 1173
     TabOrder = 0
-    object BitBtn1: TBitBtn
-      Left = 13
-      Height = 36
+    object BitBtn4: TBitBtn
+      Left = 8
+      Height = 29
       Top = 8
-      Width = 156
-      AutoSize = True
-      Caption = 'Eintrag erzeugen'
-      OnClick = BitBtn1Click
-      TabOrder = 0
-    end
-    object BitBtn2: TBitBtn
-      Left = 176
-      Height = 36
-      Top = 8
-      Width = 118
-      AutoSize = True
-      Caption = 'Durchgehen'
-      OnClick = BitBtn2Click
-      TabOrder = 1
-    end
-    object BitBtn3: TBitBtn
-      Left = 296
-      Height = 36
-      Top = 8
-      Width = 93
+      Width = 74
       AutoSize = True
       Caption = 'Content1'
-      OnClick = BitBtn3Click
-      TabOrder = 2
-    end
-    object BitBtn4: TBitBtn
-      Left = 392
-      Height = 36
-      Top = 8
-      Width = 93
-      AutoSize = True
-      Caption = 'Content2'
       OnClick = BitBtn4Click
-      TabOrder = 3
+      TabOrder = 0
     end
   end
   object Panel2: TPanel
     Left = 0
-    Height = 400
+    Height = 757
     Top = 0
-    Width = 744
+    Width = 1110
     Align = alClient
     TabOrder = 1
   end
   object Panel3: TPanel
-    Left = 749
-    Height = 400
+    Left = 1115
+    Height = 757
     Top = 0
     Width = 58
     Align = alRight
     TabOrder = 2
   end
   object Splitter1: TSplitter
-    Left = 744
-    Height = 400
+    Left = 1110
+    Height = 757
     Top = 0
     Width = 5
     Align = alRight
