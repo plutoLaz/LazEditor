@@ -13,17 +13,11 @@ uses
 type
   { TForm1 }
   TForm1 = class(TForm)
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Splitter1: TSplitter;
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -32,6 +26,8 @@ type
     LazEditor_pr1_Test:TLazEditor_pr1_Test;
     Liste_Kraut:TStringList;
     StyleList1, StyleList2, StyleList3, StyleList4:TLazEditorStyleList;
+    function RandomBoxArray():TLazEditorBoxArray;
+    procedure RandomParagraph(const aCount:Integer);
   end;
 
 var
@@ -137,35 +133,7 @@ begin
   FreeAndNil(Liste_Kraut);
 end;
 
-procedure TForm1.BitBtn1Click(Sender: TObject);
-begin
-end;
-
-procedure TForm1.BitBtn2Click(Sender: TObject);
-//var
-//  TempItem:TMyItem;
-begin
-//  writeln('--------------------------');
-//  for TempItem in LinkedList do begin
-//    writeln(TempItem.FName);
-//  end;
-end;
-
-procedure TForm1.BitBtn3Click(Sender: TObject);
-var
-  i:Integer;
-  Str:String;
-begin
-  str:='';
-  for i:=0 to 50 do begin
-    Str+=Liste_Kraut[i] + ' ';
-  end;
-
-  LazEditor_pr1_Test.SetText([TLazEditorTextBox.Create(str)]);
-  LazEditor_pr1_Test.Invalidate;
-end;
-
-procedure TForm1.BitBtn4Click(Sender: TObject);
+function TForm1.RandomBoxArray(): TLazEditorBoxArray;
   procedure AddBoxArray(aBox:TLazEditorBox; var aBoxArray:TLazEditorBoxArray);
   var
     Len:Integer;
@@ -190,24 +158,28 @@ procedure TForm1.BitBtn4Click(Sender: TObject);
   end; // GetRandomStyle
 
 var
-  i,WordCount, y:Integer;
+  i,WordCount, y, StartI, CountI:Integer;
   Str:String;
 
-  BoxArray:TLazEditorBoxArray;
   TempStyleBox:TLazEditorStyleList;
 begin
-  BoxArray:=[];
+  Result:=[];
   str:='';
 
   WordCount:=Random(10)+1;
   y:=0;
-  SetLength(BoxArray, 0);
+  SetLength(Result, 0);
   TempStyleBox:=GetRandomStyle;
-  for i:=0 to 50 do begin
+  CountI:=Random(25);
+  StartI:=Random(Liste_Kraut.Count);
+  if StartI + CountI >=Liste_Kraut.Count -1 then
+    StartI:=StartI - CountI;
+
+  for i:=StartI to StartI + CountI do begin
     Str+=Liste_Kraut[i] + ' ';
     if y + 1 <=WordCount then begin
-      AddBoxArray(TempStyleBox, BoxArray);
-      AddBoxArray(TLazEditorTextBox.Create(Str), BoxArray);
+      AddBoxArray(TempStyleBox, Result);
+      AddBoxArray(TLazEditorTextBox.Create(Str), Result);
       y+=1;
       str:='';
     end
@@ -218,8 +190,27 @@ begin
     end;
   end;
 
-  LazEditor_pr1_Test.SetText(BoxArray);
+end; // TForm1.RandomBoxArray
+
+procedure TForm1.RandomParagraph(const aCount: Integer);
+var
+  Temp:TLazEditorBoxParagraph;
+  i:Integer;
+begin
+  LazEditor_pr1_Test.RootBox.clear();
+  for i:=0 to aCount do begin
+    Temp:=TLazEditorBoxParagraph.Create(LazEditor_pr1_Test.LineList);
+    Temp.Name:='P_' + IntToStr(i);
+    Temp.SetText(RandomBoxArray());
+    Temp.StyleList:=StyleList1;
+    LazEditor_pr1_Test.RootBox.Items.Add(Temp);
+  end; // for i
   LazEditor_pr1_Test.Invalidate;
+end; // TForm1.RandomParagraph
+
+procedure TForm1.BitBtn4Click(Sender: TObject);
+begin
+  RandomParagraph(2);
 end;
 
 end.
