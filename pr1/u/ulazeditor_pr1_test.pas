@@ -60,6 +60,7 @@ type
     destructor Destroy; override;
 
     procedure Render(var aLeft, aTop:Integer; aCanvas:TCanvas); override;
+    procedure Clear();
 
     property Count:Integer read GetCount;
     property Item[const aItemIndex:Integer]:TLazEditorBoxExt read GetItem; default;
@@ -104,6 +105,42 @@ type
     function GetStyle: TLazEditorStyleList;
   end;
 
+  { TLazEditorLineItemExt }
+  TLazEditorLineItemExt = class
+  private
+
+  protected
+
+  public
+    StartLongLine:TLazEditorLineLL.PItem;
+    EndLongLine:TLazEditorLineLL.PItem;
+
+    constructor Create;
+    destructor Destroy; override;
+  published
+  end; // TLazEditorLineItemExt
+
+  { TLazEditorLineListExt }
+  TLazEditorLineListExt = class
+  private
+    function GetCount: Integer;
+    function GetItem(const aItemIndex: Integer): TLazEditorLineItemExt;
+
+  protected
+
+  public
+    Items:TObjectList;
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Clear;
+    function AddLineExt():TLazEditorLineItemExt;
+
+    property Count:Integer read GetCount;
+    property Item[const aItemIndex:Integer]:TLazEditorLineItemExt read GetItem; default;
+  published
+  end; // TLazEditorLineListExt
+
   { TLazEditorLineItem }
   TLazEditorLineItem = class
   private
@@ -142,8 +179,13 @@ type
     constructor Create({%H-}AOwner: TComponent); override;
     destructor Destroy; override;
 
+    // Die erste Version, ohne Object Struktur
     procedure Render();
+
+    // Eine Test Methode, um zu sehen, wie eine Zeilenstruktur erstellt werden kann, wird später wieder gelöscht.
     procedure Render2();
+
+    // Die eigentliche Render Methode, die auch die neue Objekt Struktur nutzt
     procedure Render3();
 
     procedure BoundsChanged; override;
@@ -164,6 +206,55 @@ operator :=(const AValue: String): TLazEditorLongLine;
 begin
   Result := TLazEditorLongLine.Create(AValue,nil);
 end;
+
+function TLazEditorLineListExt.GetCount: Integer;
+begin
+  result:=Items.Count;
+end; // TLazEditorLineListExt.GetCount
+
+function TLazEditorLineListExt.GetItem(const aItemIndex: Integer): TLazEditorLineItemExt;
+begin
+  result:=Items[aItemIndex] as TLazEditorLineItemExt
+end; // TLazEditorLineListExt.GetItem
+
+{ TLazEditorLineListExt }
+constructor TLazEditorLineListExt.Create;
+begin
+  inherited Create;
+  Items:=TObjectList.Create(False);
+  Items.OwnsObjects:=False;
+end; // TLazEditorLineListExt.Create
+
+destructor TLazEditorLineListExt.Destroy;
+begin
+  FreeAndNil(Items);
+  inherited Destroy;
+end; // TLazEditorLineListExt.Destroy
+
+procedure TLazEditorLineListExt.Clear;
+var
+  i:Integer;
+begin
+  for i:=Count -1 downto 0 do begin
+    Items.Remove(Items[i]);
+  end; // for i
+end; // TLazEditorLineListExt.Clear
+
+function TLazEditorLineListExt.AddLineExt(): TLazEditorLineItemExt;
+begin
+  result:=Item[items.Add(TLazEditorLineItemExt.Create)];
+end; // TLazEditorLineListExt.AddLineExt
+
+{ TLazEditorLineItemExt }
+constructor TLazEditorLineItemExt.Create;
+begin
+  inherited Create;
+end; // TLazEditorLineItemExt.Create
+
+destructor TLazEditorLineItemExt.Destroy;
+begin
+  inherited Destroy;
+end; // TLazEditorLineItemExt.Destroy
 
 { TLazEditorBoxParagraph }
 constructor TLazEditorBoxParagraph.Create(aLineList: TLazEditorLineLL);
@@ -380,6 +471,15 @@ begin
   end;
 end; // TLazEditorBoxContainer.Render
 
+procedure TLazEditorBoxContainer.Clear();
+var
+  i:Integer;
+begin
+  for i:=Count - 1 downto 0 do begin
+    Items.Remove(Items[i]);
+  end; // for i
+end; // TLazEditorBoxContainer.Clear(
+
 { TLazEditorBoxExt }
 constructor TLazEditorBoxExt.Create(aLineList: TLazEditorLineLL);
 begin
@@ -448,7 +548,8 @@ var
   r:boolean;
 begin
   fContentText:=AValue;
-
+  writeln('Wird aktuell nicht mehr verwendet, sollte umgebaut werden.');
+  exit;
   Token:='';
   r:=False;
   if fContentText <> AValue then begin
